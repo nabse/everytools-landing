@@ -2,25 +2,275 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #0a0a15;
+  --muted: #62637a;
+  --muted-strong: #3f3f55;
+  --surface: #f8f8fc;
+  --surface-2: #f2f2f8;
+  --border: #e8e8ef;
+  --border-strong: #d8d8e2;
+  --brand: #4f46e5;
+  --brand-strong: #4338ca;
+  --brand-soft: #eef0ff;
+  --accent: #8b5cf6;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-muted-strong: var(--muted-strong);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-brand: var(--brand);
+  --color-brand-strong: var(--brand-strong);
+  --color-brand-soft: var(--brand-soft);
+  --color-accent: var(--accent);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-feature-settings: "cv11", "ss01", "ss03";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  letter-spacing: -0.005em;
 }
+
+/* Headings get a tighter optical feel */
+h1, h2 {
+  letter-spacing: -0.03em;
+}
+h3 {
+  letter-spacing: -0.015em;
+}
+
+/* ——— Backgrounds ——— */
+
+.bg-hero-gradient {
+  background:
+    radial-gradient(900px 480px at 85% -10%, rgba(139, 92, 246, 0.16), transparent 60%),
+    radial-gradient(720px 380px at -5% 0%, rgba(79, 70, 229, 0.12), transparent 55%),
+    linear-gradient(180deg, #ffffff 0%, #fafafd 100%);
+}
+
+.bg-cta-gradient {
+  background: linear-gradient(135deg, #4338ca 0%, #6d28d9 55%, #7c3aed 100%);
+}
+
+.bg-grid {
+  background-image:
+    linear-gradient(to right, rgba(10, 10, 25, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(10, 10, 25, 0.04) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 35%, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 35%, transparent 75%);
+}
+
+/* ——— Text ——— */
+
+.text-gradient {
+  background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 55%, #8b5cf6 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ——— Shadows ——— */
+
+.shadow-elevate {
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.7) inset,
+    0 1px 2px rgba(16, 24, 40, 0.04),
+    0 8px 24px -6px rgba(16, 24, 40, 0.08);
+}
+
+.shadow-elevate-hover {
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.7) inset,
+    0 2px 4px rgba(16, 24, 40, 0.05),
+    0 24px 48px -12px rgba(79, 70, 229, 0.22);
+}
+
+.shadow-soft {
+  box-shadow:
+    0 1px 2px rgba(16, 24, 40, 0.04),
+    0 2px 8px rgba(16, 24, 40, 0.04);
+}
+
+.shadow-pop {
+  box-shadow:
+    0 10px 30px -10px rgba(16, 24, 40, 0.15),
+    0 30px 80px -20px rgba(79, 70, 229, 0.2);
+}
+
+/* Back-compat aliases (used by earlier components) */
+.card-shadow {
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.7) inset,
+    0 1px 2px rgba(16, 24, 40, 0.04),
+    0 8px 24px -6px rgba(16, 24, 40, 0.08);
+}
+.card-shadow-hover {
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.7) inset,
+    0 2px 4px rgba(16, 24, 40, 0.05),
+    0 24px 48px -12px rgba(79, 70, 229, 0.22);
+}
+
+/* ——— Buttons ——— */
+
+.btn-primary {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  height: 3rem;
+  padding: 0 1.5rem;
+  border-radius: 9999px;
+  background: linear-gradient(180deg, #1a1a2b 0%, #0a0a15 100%);
+  color: #ffffff;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.15) inset,
+    0 0 0 1px rgba(255, 255, 255, 0.04) inset,
+    0 1px 2px rgba(10, 10, 21, 0.4),
+    0 8px 20px -8px rgba(10, 10, 21, 0.5);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+.btn-primary:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.08);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.2) inset,
+    0 0 0 1px rgba(255, 255, 255, 0.06) inset,
+    0 4px 8px rgba(10, 10, 21, 0.35),
+    0 18px 40px -12px rgba(79, 70, 229, 0.45);
+}
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  height: 3rem;
+  padding: 0 1.5rem;
+  border-radius: 9999px;
+  background: #ffffff;
+  border: 1px solid var(--border);
+  color: var(--foreground);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.04);
+  transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+}
+.btn-secondary:hover {
+  border-color: var(--border-strong);
+  background: #fafafd;
+  transform: translateY(-1px);
+}
+
+.btn-ghost-white {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  height: 3rem;
+  padding: 0 1.5rem;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  color: #ffffff;
+  font-size: 0.875rem;
+  font-weight: 500;
+  backdrop-filter: blur(6px);
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+.btn-ghost-white:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.btn-on-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  height: 3rem;
+  padding: 0 1.5rem;
+  border-radius: 9999px;
+  background: #ffffff;
+  color: var(--foreground);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  box-shadow: 0 8px 24px -10px rgba(0, 0, 0, 0.35);
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+.btn-on-cta:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.02);
+}
+
+/* ——— Focus ring (accessibility) ——— */
+
+.focus-ring:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px var(--brand);
+  border-radius: 9999px;
+}
+
+/* ——— Eyebrow label ——— */
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--brand);
+}
+.eyebrow::before {
+  content: "";
+  display: inline-block;
+  width: 18px;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.6;
+}
+
+/* ——— Glass surface ——— */
+
+.glass {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: saturate(1.2) blur(10px);
+  -webkit-backdrop-filter: saturate(1.2) blur(10px);
+}
+
+/* ——— Subtle animated gradient for mockup glow ——— */
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+.float-slow { animation: float 6s ease-in-out infinite; }
