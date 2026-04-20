@@ -5,9 +5,15 @@ import { DETAIL_LEVELS, LANGUAGES, type Tool } from "../lib/tools";
 
 type ToolPageProps = {
   tool: Tool;
+  /**
+   * Optional extra content rendered at the end of <main>, after the CTA and
+   * before the global footer. Used by per-tool pages (e.g. InstantRep) to
+   * append sections like Privacy Policy without touching the shared layout.
+   */
+  tailSlot?: React.ReactNode;
 };
 
-export default function ToolPage({ tool }: ToolPageProps) {
+export default function ToolPage({ tool, tailSlot }: ToolPageProps) {
   return (
     <>
       <Nav />
@@ -389,6 +395,8 @@ export default function ToolPage({ tool }: ToolPageProps) {
             </div>
           </div>
         </section>
+
+        {tailSlot}
       </main>
       <Footer />
     </>
