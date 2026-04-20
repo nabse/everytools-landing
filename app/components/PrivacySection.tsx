@@ -1,20 +1,33 @@
 /**
- * InstantRep Privacy Policy section.
+ * Shared Privacy Policy section rendered via ToolPage's `tailSlot`.
  *
- * Rendered via ToolPage's `tailSlot` — sits between the main CTA and the
- * global footer. Keeps the disclosure discoverable (reachable via
- * everytools.ai/instantrep#privacy) without breaking the shared layout used
- * by other tool pages.
+ * Sits between the main CTA and the global footer. Reachable via
+ * everytools.ai/<tool>#privacy. Parameterized per tool so wording stays
+ * accurate (what's processed: emails / videos / pages / notes; what's
+ * produced: reply / summary / explanation / to-do list).
  */
-export default function PrivacySection() {
+type PrivacySectionProps = {
+  /** Product name, e.g. "InstantRep". */
+  toolName: string;
+  /** Title for point #2, e.g. "Emails are processed, not stored". */
+  processedTitle: string;
+  /** Body for point #2 — describes what's read and what's produced. */
+  processedBody: string;
+};
+
+export default function PrivacySection({
+  toolName,
+  processedTitle,
+  processedBody,
+}: PrivacySectionProps) {
   const points: { title: string; body: string }[] = [
     {
       title: "No personal data collected",
-      body: "We do not collect, store, or share any personal user data. InstantRep does not require an account.",
+      body: `We do not collect, store, or share any personal user data. ${toolName} does not require an account.`,
     },
     {
-      title: "Emails are processed, not stored",
-      body: "The extension accesses the currently open email only when you actively use it. The content is processed temporarily to generate a reply and discarded right after — it is never retained.",
+      title: processedTitle,
+      body: processedBody,
     },
     {
       title: "No tracking, no profiling",
@@ -45,7 +58,7 @@ export default function PrivacySection() {
         </h2>
 
         <p className="mt-5 max-w-2xl text-[16px] leading-[1.7] text-muted sm:text-[17px]">
-          InstantRep respects your privacy and is built to minimize data usage.
+          {toolName} respects your privacy and is built to minimize data usage.
           Here is exactly what happens to your data — in plain language.
         </p>
 
@@ -107,7 +120,7 @@ export default function PrivacySection() {
 
         {/* Fine print */}
         <p className="mt-10 text-[12.5px] text-muted">
-          This summary describes InstantRep's current practices and may be
+          This summary describes {toolName}&apos;s current practices and may be
           updated to reflect product changes or legal requirements. Material
           changes will be communicated on this page.
         </p>
