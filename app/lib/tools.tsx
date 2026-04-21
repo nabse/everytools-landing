@@ -12,6 +12,13 @@ export type Tool = {
   icon: ReactNode;
   features: { title: string; body: string }[];
   tones?: string[];
+  /**
+   * Chrome Web Store URL (or any external install URL). When set, both
+   * install buttons on ToolPage deep-link here in a new tab. When unset,
+   * they fall back to the in-page `#install` CTA section — the right
+   * default for tools that aren't published yet.
+   */
+  installUrl?: string;
 };
 
 const iconProps = {
@@ -77,6 +84,8 @@ export const tools: Tool[] = [
       },
     ],
     tones: ["Friendly", "Formal", "Direct", "Casual"],
+    installUrl:
+      "https://chromewebstore.google.com/detail/instantrep-%E2%80%94-ai-email-rep/indmflpcjpjgkppkoibeeeaaonnamagb",
   },
   {
     slug: "veedge",

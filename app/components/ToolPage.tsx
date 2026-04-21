@@ -97,7 +97,13 @@ export default function ToolPage({ tool, tailSlot }: ToolPageProps) {
               </p>
 
               <div className="mt-3 flex flex-col gap-3 sm:flex-row">
-                <a href="#install" className="btn-primary focus-ring">
+                <a
+                  href={tool.installUrl ?? "#install"}
+                  className="btn-primary focus-ring"
+                  {...(tool.installUrl
+                    ? { target: "_blank", rel: "noopener noreferrer" }
+                    : {})}
+                >
                   Install {tool.name} — free
                   <svg
                     viewBox="0 0 24 24"
@@ -385,7 +391,13 @@ export default function ToolPage({ tool, tailSlot }: ToolPageProps) {
                 in a click.
               </p>
               <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-                <a href="#" className="btn-on-cta focus-ring">
+                <a
+                  href={tool.installUrl ?? "#"}
+                  className="btn-on-cta focus-ring"
+                  {...(tool.installUrl
+                    ? { target: "_blank", rel: "noopener noreferrer" }
+                    : {})}
+                >
                   Install {tool.name} — free
                 </a>
                 <Link href="/" className="btn-ghost-white focus-ring">
