@@ -123,6 +123,8 @@ export const tools: Tool[] = [
         body: "Timestamps take you right to the parts worth watching — no scrubbing required.",
       },
     ],
+    installUrl:
+      "https://chromewebstore.google.com/detail/veedge-%E2%80%94-youtube-ai-summa/nllgadlfnebcjkilfoanbaknkkpdmflk",
   },
   {
     slug: "explainit",

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Nav from "./Nav";
 import Footer from "./Footer";
+import InstallHashRedirect from "./InstallHashRedirect";
 import { DETAIL_LEVELS, LANGUAGES, type Tool } from "../lib/tools";
 
 type ToolPageProps = {
@@ -16,6 +17,7 @@ type ToolPageProps = {
 export default function ToolPage({ tool, tailSlot }: ToolPageProps) {
   return (
     <>
+      <InstallHashRedirect installUrl={tool.installUrl} />
       <Nav />
       <main className="flex-1">
         {/* ================== HERO ================== */}
