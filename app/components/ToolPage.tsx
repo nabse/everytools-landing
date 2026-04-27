@@ -99,28 +99,37 @@ export default function ToolPage({ tool, tailSlot }: ToolPageProps) {
               </p>
 
               <div className="mt-3 flex flex-col gap-3 sm:flex-row">
-                <a
-                  href={tool.installUrl ?? "#install"}
-                  className="btn-primary focus-ring"
-                  {...(tool.installUrl
-                    ? { target: "_blank", rel: "noopener noreferrer" }
-                    : {})}
-                >
-                  Install {tool.name} — free
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="h-4 w-4"
-                    aria-hidden
+                {tool.comingSoon ? (
+                  <a href="#coming-soon" className="btn-primary focus-ring">
+                    Install {tool.name} — free
+                    <span className="inline-flex items-center rounded-full bg-white/20 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider">
+                      Soon
+                    </span>
+                  </a>
+                ) : (
+                  <a
+                    href={tool.installUrl ?? "#install"}
+                    className="btn-primary focus-ring"
+                    {...(tool.installUrl
+                      ? { target: "_blank", rel: "noopener noreferrer" }
+                      : {})}
                   >
-                    <path d="M5 12h14" />
-                    <path d="m12 5 7 7-7 7" />
-                  </svg>
-                </a>
+                    Install {tool.name} — free
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth={2}
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="h-4 w-4"
+                      aria-hidden
+                    >
+                      <path d="M5 12h14" />
+                      <path d="m12 5 7 7-7 7" />
+                    </svg>
+                  </a>
+                )}
                 <Link href="/" className="btn-secondary focus-ring">
                   <svg
                     viewBox="0 0 24 24"
@@ -369,46 +378,150 @@ export default function ToolPage({ tool, tailSlot }: ToolPageProps) {
           </div>
         </section>
 
-        {/* ================== CTA ================== */}
-        <section id="install" className="px-5 pb-28 sm:px-8 sm:pb-32">
-          <div className="relative mx-auto w-full max-w-5xl overflow-hidden rounded-[28px] bg-cta-gradient px-8 py-16 text-white shadow-pop sm:px-14 sm:py-20">
-            <div
-              aria-hidden
-              className="pointer-events-none absolute inset-0 opacity-50"
-              style={{
-                background:
-                  "radial-gradient(600px 260px at 80% 0%, rgba(255,255,255,0.25), transparent 60%)",
-              }}
-            />
-            <div className="relative">
-              <span className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.1em] text-white/90 backdrop-blur">
-                <span className="h-1.5 w-1.5 rounded-full bg-white" />
-                An EveryTools extension
-              </span>
-              <h2 className="mt-5 max-w-2xl text-[32px] font-semibold leading-[1.1] sm:text-[48px]">
-                Add {tool.name} to your browser.
-              </h2>
-              <p className="mt-4 max-w-xl text-base text-white/85 sm:text-lg">
-                A standalone extension. Multilingual by default. Customizable
-                in a click.
-              </p>
-              <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-                <a
-                  href={tool.installUrl ?? "#"}
-                  className="btn-on-cta focus-ring"
-                  {...(tool.installUrl
-                    ? { target: "_blank", rel: "noopener noreferrer" }
-                    : {})}
-                >
-                  Install {tool.name} — free
-                </a>
-                <Link href="/" className="btn-ghost-white focus-ring">
-                  Back to EveryTools
-                </Link>
+        {/* ================== CTA / COMING SOON ================== */}
+        {tool.comingSoon ? (
+          /* ── Coming soon block ── */
+          <section id="coming-soon" className="px-5 pb-28 sm:px-8 sm:pb-32">
+            <div className="relative mx-auto w-full max-w-5xl overflow-hidden rounded-[28px] border border-border bg-white px-8 py-14 shadow-elevate sm:px-14 sm:py-18">
+              {/* Subtle accent glow */}
+              <div
+                aria-hidden
+                className="pointer-events-none absolute -inset-8 opacity-[0.12] blur-3xl"
+                style={{ background: tool.accent }}
+              />
+
+              <div className="relative max-w-xl">
+                {/* Status badge */}
+                <span className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.1em] text-muted-strong">
+                  <span
+                    className="h-1.5 w-1.5 animate-pulse rounded-full"
+                    style={{ background: tool.accent }}
+                  />
+                  In development
+                </span>
+
+                <h2 className="mt-5 text-[32px] font-semibold leading-[1.1] sm:text-[44px]">
+                  Coming soon 🚀
+                </h2>
+
+                <p className="mt-4 text-[17px] leading-[1.7] text-muted">
+                  {tool.name} is currently in development and will be available
+                  very soon. We&apos;re making sure it&apos;s genuinely useful
+                  before we ship it.
+                </p>
+
+                {/* Reassuring bullets */}
+                <ul className="mt-7 space-y-3.5">
+                  {[
+                    "We're polishing the experience to make it really useful for you.",
+                    "Be the first to try it when it launches.",
+                  ].map((item) => (
+                    <li
+                      key={item}
+                      className="flex items-start gap-3 text-[15px] text-foreground/85"
+                    >
+                      <span
+                        className="mt-[5px] flex h-4 w-4 shrink-0 items-center justify-center rounded-full text-white"
+                        style={{ background: tool.accent }}
+                        aria-hidden
+                      >
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth={3}
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          className="h-2.5 w-2.5"
+                        >
+                          <path d="M20 6 9 17l-5-5" />
+                        </svg>
+                      </span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+
+                {/* Early access CTA */}
+                <div className="mt-9 rounded-2xl border border-border bg-surface px-6 py-5">
+                  <p className="text-[14.5px] leading-relaxed text-muted-strong">
+                    <span className="mr-1">💌</span>
+                    <strong className="font-semibold text-foreground">
+                      Want early access?
+                    </strong>{" "}
+                    Reach out and we&apos;ll let you know the moment it&apos;s
+                    ready.{" "}
+                    <a
+                      href="mailto:contact@everytools.ai"
+                      className="font-semibold text-brand underline underline-offset-2 transition hover:text-brand-strong"
+                    >
+                      contact@everytools.ai
+                    </a>
+                  </p>
+                </div>
+
+                <div className="mt-7">
+                  <Link href="/" className="btn-secondary focus-ring">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth={2}
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="h-4 w-4"
+                      aria-hidden
+                    >
+                      <path d="m15 18-6-6 6-6" />
+                    </svg>
+                    Explore other extensions
+                  </Link>
+                </div>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
+        ) : (
+          /* ── Standard install CTA ── */
+          <section id="install" className="px-5 pb-28 sm:px-8 sm:pb-32">
+            <div className="relative mx-auto w-full max-w-5xl overflow-hidden rounded-[28px] bg-cta-gradient px-8 py-16 text-white shadow-pop sm:px-14 sm:py-20">
+              <div
+                aria-hidden
+                className="pointer-events-none absolute inset-0 opacity-50"
+                style={{
+                  background:
+                    "radial-gradient(600px 260px at 80% 0%, rgba(255,255,255,0.25), transparent 60%)",
+                }}
+              />
+              <div className="relative">
+                <span className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.1em] text-white/90 backdrop-blur">
+                  <span className="h-1.5 w-1.5 rounded-full bg-white" />
+                  An EveryTools extension
+                </span>
+                <h2 className="mt-5 max-w-2xl text-[32px] font-semibold leading-[1.1] sm:text-[48px]">
+                  Add {tool.name} to your browser.
+                </h2>
+                <p className="mt-4 max-w-xl text-base text-white/85 sm:text-lg">
+                  A standalone extension. Multilingual by default. Customizable
+                  in a click.
+                </p>
+                <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+                  <a
+                    href={tool.installUrl ?? "#"}
+                    className="btn-on-cta focus-ring"
+                    {...(tool.installUrl
+                      ? { target: "_blank", rel: "noopener noreferrer" }
+                      : {})}
+                  >
+                    Install {tool.name} — free
+                  </a>
+                  <Link href="/" className="btn-ghost-white focus-ring">
+                    Back to EveryTools
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </section>
+        )}
 
         {tailSlot}
       </main>

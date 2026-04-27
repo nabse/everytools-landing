@@ -8,6 +8,7 @@ type ToolCardProps = {
   href: string;
   icon: ReactNode;
   accent: string;
+  comingSoon?: boolean;
 };
 
 export default function ToolCard({
@@ -17,6 +18,7 @@ export default function ToolCard({
   href,
   icon,
   accent,
+  comingSoon,
 }: ToolCardProps) {
   return (
     <Link
@@ -44,10 +46,17 @@ export default function ToolCard({
         </div>
 
         <div className="flex items-center gap-2">
-          <span className="inline-flex items-center gap-1 rounded-full border border-border bg-surface px-2.5 py-1 text-[10.5px] font-semibold uppercase tracking-[0.08em] text-muted-strong">
-            <span className="h-1 w-1 rounded-full bg-brand" />
-            Extension
-          </span>
+          {comingSoon ? (
+            <span className="inline-flex items-center gap-1 rounded-full border border-amber-200 bg-amber-50 px-2.5 py-1 text-[10.5px] font-semibold uppercase tracking-[0.08em] text-amber-700">
+              <span className="h-1 w-1 animate-pulse rounded-full bg-amber-500" />
+              Coming soon
+            </span>
+          ) : (
+            <span className="inline-flex items-center gap-1 rounded-full border border-border bg-surface px-2.5 py-1 text-[10.5px] font-semibold uppercase tracking-[0.08em] text-muted-strong">
+              <span className="h-1 w-1 rounded-full bg-brand" />
+              Extension
+            </span>
+          )}
           <span className="flex h-9 w-9 items-center justify-center rounded-full border border-border/80 bg-white text-muted transition-all duration-300 group-hover:border-foreground group-hover:bg-foreground group-hover:text-white">
           <svg
             viewBox="0 0 24 24"

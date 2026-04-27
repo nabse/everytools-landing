@@ -19,6 +19,12 @@ export type Tool = {
    * default for tools that aren't published yet.
    */
   installUrl?: string;
+  /**
+   * When true, the tool is not yet available. Install buttons scroll to a
+   * dedicated "Coming soon" section instead of the Chrome Web Store, and
+   * both ToolPage and ToolCard surface a visual "Coming soon" indicator.
+   */
+  comingSoon?: boolean;
 };
 
 const iconProps = {
@@ -150,6 +156,7 @@ export const tools: Tool[] = [
         <rect x="3" y="16.6" width="12" height="2.4" rx="1.2" />
       </svg>
     ),
+    comingSoon: true,
     features: [
       {
         title: "Explanations in your language",
@@ -187,6 +194,7 @@ export const tools: Tool[] = [
         <path d="M20.3 6.3a1.2 1.2 0 0 1 0 1.7l-10 10a1.2 1.2 0 0 1-1.7 0l-5-5a1.2 1.2 0 1 1 1.7-1.7L9.5 15.3l9.1-9.1a1.2 1.2 0 0 1 1.7 0z" />
       </svg>
     ),
+    comingSoon: true,
     features: [
       {
         title: "Export in any language",

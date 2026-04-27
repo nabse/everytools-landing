@@ -287,6 +287,7 @@ export default function Home() {
                   href={t.href}
                   icon={t.icon}
                   accent={t.accent}
+                  comingSoon={t.comingSoon}
                 />
               ))}
             </div>
