@@ -5,7 +5,7 @@ const tools = [
   { name: "InstantRep", href: "/instantrep" },
   { name: "Veedge", href: "/veedge" },
   { name: "ExplainIt", href: "/explainit" },
-  { name: "ToDoIt", href: "/todoit" },
+  { name: "WorthIt", href: "/worthit" },
 ];
 
 export default function Footer() {

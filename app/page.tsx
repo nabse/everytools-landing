@@ -7,7 +7,7 @@ import { tools } from "./lib/tools";
 const steps = [
   {
     title: "Pick the right extension",
-    body: "Choose the EveryTools extension that matches your task — emails, videos, webpages, or to-dos.",
+    body: "Choose the EveryTools extension that matches your task — emails, videos, webpages, or buying decisions.",
   },
   {
     title: "Set it to your needs",
@@ -192,9 +192,11 @@ export default function Home() {
                 <span className="text-foreground">InstantRep</span>,{" "}
                 <span className="text-foreground">Veedge</span>,{" "}
                 <span className="text-foreground">ExplainIt</span>, and{" "}
-                <span className="text-foreground">ToDoIt</span>. Each one is
-                multilingual and customizable — choose your language, the
-                level of detail, and the style that fits the moment.
+                <span className="text-foreground">WorthIt</span>. AI tools
+                that understand what you&apos;re looking at — and act
+                instantly. Multilingual and customizable — choose your
+                language, the level of detail, and the style that fits the
+                moment.
               </p>
 
               <div className="mt-10 flex flex-col items-center gap-3 sm:flex-row">
@@ -246,7 +248,7 @@ export default function Home() {
               <div className="flex flex-col justify-center gap-5 text-[17px] leading-[1.7] text-muted md:col-span-7 md:text-[18px]">
                 <p>
                   EveryTools brings together four focused AI browser
-                  extensions — InstantRep, Veedge, ExplainIt, and ToDoIt —
+                  extensions — InstantRep, Veedge, ExplainIt, and WorthIt —
                   each designed for one common online task.
                 </p>
                 <p>

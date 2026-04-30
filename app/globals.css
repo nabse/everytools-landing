@@ -274,3 +274,64 @@ h3 {
   50% { transform: translateY(-6px); }
 }
 .float-slow { animation: float 6s ease-in-out infinite; }
+
+/* ——— Print (Veedge summary demo) ——— */
+
+.print-only {
+  display: none;
+}
+
+@media print {
+  /* Hide everything, then reveal only the print area */
+  body * {
+    visibility: hidden;
+  }
+  .veedge-print-area,
+  .veedge-print-area * {
+    visibility: visible;
+  }
+  .veedge-print-area {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 2cm;
+    background: white !important;
+    color: black !important;
+    box-shadow: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+
+  /* Typography */
+  .veedge-print-area h2 {
+    font-size: 18pt;
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 14pt;
+  }
+  .veedge-print-area h3 {
+    font-size: 8pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #555;
+    margin-top: 16pt;
+    margin-bottom: 6pt;
+  }
+  .veedge-print-area p,
+  .veedge-print-area li {
+    font-size: 11pt;
+    line-height: 1.7;
+    color: #111;
+  }
+  .veedge-print-area li {
+    margin-bottom: 4pt;
+  }
+}

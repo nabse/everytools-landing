@@ -173,17 +173,17 @@ export const tools: Tool[] = [
     ],
   },
   {
-    slug: "todoit",
-    name: "ToDoIt",
-    tagline: "To-do lists, instantly",
+    slug: "worthit",
+    name: "WorthIt",
+    tagline: "Know if it's worth it — instantly.",
     description:
-      "Turn any email or page into a to-do list — in your preferred language, at the level of detail that fits your workflow.",
+      "Analyze any pricing page, product, course, or subscription and get a clear verdict: Worth it, Not worth it, or Depends.",
     longDescription:
-      "ToDoIt is a dedicated browser extension, part of the EveryTools suite. Drop in an email, meeting note, or article and get a clean list of next steps — in the language you prefer, at the level of detail that fits how you work.",
+      "WorthIt is a dedicated browser extension, part of the EveryTools suite. Open it on any pricing page, product listing, course, or subscription and get a clear, personalized verdict — with smart alternatives and tailored advice based on what you actually need.",
     valueProp:
-      "Turn any email or page into a clear to-do list — in your language, in your format.",
-    href: "/todoit",
-    accent: "linear-gradient(135deg, #f472b6 0%, #db2777 100%)",
+      "Get a clear verdict on any page — Worth it, Not worth it, or Depends.",
+    href: "/worthit",
+    accent: "linear-gradient(135deg, #2dd4bf 0%, #0d9488 100%)",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -191,22 +191,26 @@ export const tools: Tool[] = [
         className="h-6 w-6"
         aria-hidden
       >
-        <path d="M20.3 6.3a1.2 1.2 0 0 1 0 1.7l-10 10a1.2 1.2 0 0 1-1.7 0l-5-5a1.2 1.2 0 1 1 1.7-1.7L9.5 15.3l9.1-9.1a1.2 1.2 0 0 1 1.7 0z" />
+        <path
+          fillRule="evenodd"
+          d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2zm4.7 7.7a1 1 0 0 0-1.4-1.4L10 13.58l-2.3-2.3a1 1 0 0 0-1.4 1.42l3 3a1 1 0 0 0 1.4 0l6-6z"
+          clipRule="evenodd"
+        />
       </svg>
     ),
     comingSoon: true,
     features: [
       {
-        title: "Export in any language",
-        body: "Generate tasks in the language you use to work — yours, your team's, or your client's.",
+        title: "Clear verdict on anything",
+        body: "Analyze SaaS pricing pages, e-commerce products, courses, or subscriptions and get a direct answer: Worth it, Not worth it, or Depends.",
       },
       {
-        title: "Choose the level of detail",
-        body: "A quick checklist, a standard list, or a detailed breakdown with context and owners.",
+        title: "Personalized to your needs",
+        body: "WorthIt factors in what you're actually looking for — not just the price tag — and surfaces smart alternatives when something doesn't make the cut.",
       },
       {
-        title: "Paste into any tool",
-        body: "Works with the to-do app, doc, or chat you already use — no retyping, no switching.",
+        title: "No research required",
+        body: "Save time and avoid bad decisions. Get the clarity you need in seconds, without opening 10 comparison tabs.",
       },
     ],
   },

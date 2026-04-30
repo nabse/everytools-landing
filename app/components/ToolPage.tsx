@@ -101,9 +101,9 @@ export default function ToolPage({ tool, tailSlot }: ToolPageProps) {
               <div className="mt-3 flex flex-col gap-3 sm:flex-row">
                 {tool.comingSoon ? (
                   <a href="#coming-soon" className="btn-primary focus-ring">
-                    Install {tool.name} — free
+                    Get notified
                     <span className="inline-flex items-center rounded-full bg-white/20 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider">
-                      Soon
+                      Coming soon
                     </span>
                   </a>
                 ) : (
