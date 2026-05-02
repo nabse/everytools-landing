@@ -198,7 +198,7 @@ export const tools: Tool[] = [
         />
       </svg>
     ),
-    comingSoon: true,
+    installUrl: "/worthit",
     features: [
       {
         title: "Clear verdict on anything",

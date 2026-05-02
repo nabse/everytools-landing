@@ -110,11 +110,13 @@ export default function ToolPage({ tool, tailSlot }: ToolPageProps) {
                   <a
                     href={tool.installUrl ?? "#install"}
                     className="btn-primary focus-ring"
-                    {...(tool.installUrl
+                    {...(tool.installUrl?.startsWith("http")
                       ? { target: "_blank", rel: "noopener noreferrer" }
                       : {})}
                   >
-                    Install {tool.name} — free
+                    {tool.installUrl?.startsWith("http")
+                      ? `Install ${tool.name} — free`
+                      : `View ${tool.name}`}
                     <svg
                       viewBox="0 0 24 24"
                       fill="none"
@@ -508,11 +510,13 @@ export default function ToolPage({ tool, tailSlot }: ToolPageProps) {
                   <a
                     href={tool.installUrl ?? "#"}
                     className="btn-on-cta focus-ring"
-                    {...(tool.installUrl
+                    {...(tool.installUrl?.startsWith("http")
                       ? { target: "_blank", rel: "noopener noreferrer" }
                       : {})}
                   >
-                    Install {tool.name} — free
+                    {tool.installUrl?.startsWith("http")
+                      ? `Install ${tool.name} — free`
+                      : `View ${tool.name}`}
                   </a>
                   <Link href="/" className="btn-ghost-white focus-ring">
                     Back to EveryTools
