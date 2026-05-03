@@ -391,6 +391,106 @@ export default function Home() {
           </div>
         </section>
 
+        {/* ================== WORTHIT SPOTLIGHT ================== */}
+        <section className="bg-surface border-y border-border/60">
+          <div className="mx-auto w-full max-w-6xl px-5 py-20 sm:px-8 sm:py-24">
+            <div className="grid gap-10 lg:grid-cols-12 lg:gap-16 items-center">
+
+              {/* Verdict card preview */}
+              <div className="lg:col-span-5 order-2 lg:order-1">
+                <div className="relative">
+                  <div
+                    aria-hidden
+                    className="pointer-events-none absolute -inset-6 opacity-[0.12] blur-3xl"
+                    style={{ background: "linear-gradient(135deg, #2dd4bf 0%, #0d9488 100%)" }}
+                  />
+                  <div className="relative rounded-[20px] border border-border-strong/70 bg-white p-6 shadow-pop">
+                    <div className="mb-4 flex items-center justify-between border-b border-border/60 pb-4">
+                      <div className="flex items-center gap-2">
+                        <span
+                          className="flex h-6 w-6 items-center justify-center rounded-md text-white"
+                          style={{ background: "linear-gradient(135deg, #2dd4bf 0%, #0d9488 100%)" }}
+                          aria-hidden
+                        >
+                          <svg viewBox="0 0 24 24" fill="currentColor" className="h-3.5 w-3.5" aria-hidden>
+                            <path fillRule="evenodd" d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2zm4.7 7.7a1 1 0 0 0-1.4-1.4L10 13.58l-2.3-2.3a1 1 0 0 0-1.4 1.42l3 3a1 1 0 0 0 1.4 0l6-6z" clipRule="evenodd" />
+                          </svg>
+                        </span>
+                        <span className="text-[13px] font-semibold">WorthIt · Verdict</span>
+                      </div>
+                      <span className="rounded-full border border-border bg-surface px-2 py-0.5 text-[10px] font-medium text-muted-strong">Example</span>
+                    </div>
+                    <p className="text-[12px] text-muted">Analyzed: Notion AI — Plus plan</p>
+                    <div className="mt-2 flex items-center gap-2">
+                      <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-100 px-3 py-1.5 text-[13px] font-bold text-emerald-800">
+                        Worth it
+                      </span>
+                      <span className="text-[12px] text-muted">for daily Notion users</span>
+                    </div>
+                    <p className="mt-3 text-[13.5px] leading-[1.65] text-foreground/80">
+                      At $16/seat, it's justified if your team lives in Notion already.
+                      The AI saves more time than it costs — for new users, the learning
+                      curve outweighs the benefit.
+                    </p>
+                    <div className="mt-3 flex items-start gap-2 rounded-lg border border-amber-200 bg-amber-50 px-3 py-2.5">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="mt-0.5 h-3.5 w-3.5 shrink-0 text-amber-600" aria-hidden>
+                        <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z" /><line x1="12" y1="9" x2="12" y2="13" /><line x1="12" y1="17" x2="12.01" y2="17" />
+                      </svg>
+                      <p className="text-[12px] text-amber-800"><strong className="font-semibold">Watch out:</strong> Annual billing required for this rate.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Text content */}
+              <div className="lg:col-span-7 order-1 lg:order-2">
+                <span className="eyebrow">Featured extension</span>
+                <h2 className="mt-5 text-[28px] font-semibold leading-[1.1] sm:text-[36px]">
+                  WorthIt —{" "}
+                  <span className="text-gradient">AI Decision Assistant</span>
+                </h2>
+                <p className="mt-5 text-[16px] leading-[1.75] text-muted">
+                  Open WorthIt on any pricing page and get an instant AI verdict:
+                  Worth it, Not worth it, or Depends — based on what you actually need.
+                </p>
+                <ul className="mt-7 space-y-3">
+                  {[
+                    { href: "/worthit/is-this-worth-it-tool", label: "AI tool that tells you if something is worth it", sub: "Direct verdict, not more information to process" },
+                    { href: "/worthit/pricing-verdict-tool", label: "Pricing verdict tool", sub: "Instant analysis with pros, cons, and hidden cost flags" },
+                    { href: "/worthit/saas-worth-it-decision", label: "SaaS decision assistant", sub: "Evaluate any SaaS pricing plan before you commit" },
+                  ].map(({ href, label, sub }) => (
+                    <li key={href}>
+                      <Link
+                        href={href}
+                        className="group flex items-start gap-3 rounded-xl border border-border bg-white px-4 py-3.5 transition hover:border-brand/30 hover:bg-brand-soft/20"
+                      >
+                        <span className="mt-[3px] flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-cta-gradient text-white">
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={3} strokeLinecap="round" strokeLinejoin="round" className="h-2.5 w-2.5" aria-hidden>
+                            <path d="M5 12h14" /><path d="m12 5 7 7-7 7" />
+                          </svg>
+                        </span>
+                        <span>
+                          <span className="block text-[14.5px] font-semibold text-foreground group-hover:text-brand transition-colors">{label}</span>
+                          <span className="block text-[13px] text-muted mt-0.5">{sub}</span>
+                        </span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+                <div className="mt-7">
+                  <Link href="/worthit" className="btn-primary focus-ring inline-flex">
+                    Explore WorthIt
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4" aria-hidden>
+                      <path d="M5 12h14" /><path d="m12 5 7 7-7 7" />
+                    </svg>
+                  </Link>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </section>
+
         {/* ================== HOW IT WORKS ================== */}
         <section id="how-it-works" className="bg-white">
           <div className="mx-auto w-full max-w-6xl px-5 py-24 sm:px-8 sm:py-32">
