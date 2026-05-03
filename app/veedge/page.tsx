@@ -287,30 +287,29 @@ export default function VeedgePage() {
                 </Link>
               </article>
 
-              {/* Feature 2: Timestamps */}
+              {/* Feature 2: One-click summary */}
               <article className="group rounded-3xl border border-border/80 bg-white p-8 shadow-elevate transition-all duration-300 hover:-translate-y-1 hover:shadow-elevate-hover">
                 <div
                   className="mb-5 flex h-11 w-11 items-center justify-center rounded-xl text-white shadow-soft ring-1 ring-white/30"
                   style={{ background: ACCENT }}
                   aria-hidden
                 >
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5" aria-hidden>
-                    <circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" />
+                  <svg viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5" aria-hidden>
+                    <path d="M7 5v14l12-7z" />
                   </svg>
                 </div>
                 <h3 className="text-[19px] font-semibold tracking-tight">
-                  Timestamps for every key moment
+                  One-click video summary
                 </h3>
                 <p className="mt-3 text-[15px] leading-[1.75] text-muted">
-                  Every Veedge summary includes precise timestamps linked to the key sections
-                  of the video. Jump directly to the part that matters — no scrubbing required.
-                  Each timestamp is labeled with a short description of what happens at that moment.
+                  Get a full YouTube video summary with a single click. No setup, no
+                  complexity — just open the extension and instantly access the key insights.
                 </p>
                 <Link
-                  href="/veedge/youtube-summary-timestamps"
+                  href="/veedge/fast-youtube-summary"
                   className="mt-5 inline-flex items-center gap-1.5 text-[13.5px] font-medium text-brand transition hover:text-brand-strong"
                 >
-                  Summarize videos with timestamps
+                  Summarize in one click
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="h-3.5 w-3.5" aria-hidden>
                     <path d="M5 12h14" /><path d="m12 5 7 7-7 7" />
                   </svg>
