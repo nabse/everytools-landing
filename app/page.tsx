@@ -296,6 +296,101 @@ export default function Home() {
           </div>
         </section>
 
+        {/* ================== VEEDGE SPOTLIGHT ================== */}
+        <section className="bg-white border-y border-border/60">
+          <div className="mx-auto w-full max-w-6xl px-5 py-20 sm:px-8 sm:py-24">
+            <div className="grid gap-10 lg:grid-cols-12 lg:gap-16 items-center">
+              <div className="lg:col-span-6">
+                <span className="eyebrow">Featured extension</span>
+                <h2 className="mt-5 text-[28px] font-semibold leading-[1.1] sm:text-[36px]">
+                  Veedge —{" "}
+                  <span className="text-gradient">AI YouTube Summarizer</span>
+                </h2>
+                <p className="mt-5 text-[16px] leading-[1.75] text-muted">
+                  Veedge summarizes any YouTube video in seconds — key ideas,
+                  timestamps, and takeaways in your preferred language, at the
+                  level of detail you choose.
+                </p>
+                <ul className="mt-7 space-y-3">
+                  {[
+                    { href: "/veedge/fast-youtube-summary", label: "Fast YouTube summarizer", sub: "Get key ideas in under 10 seconds" },
+                    { href: "/veedge/youtube-summary-timestamps", label: "Summarize videos with timestamps", sub: "Jump to what matters, skip what doesn't" },
+                    { href: "/veedge/multilingual-youtube-summary", label: "Multilingual video summaries", sub: "Summaries in your language, for any video" },
+                  ].map(({ href, label, sub }) => (
+                    <li key={href}>
+                      <Link
+                        href={href}
+                        className="group flex items-start gap-3 rounded-xl border border-border bg-surface px-4 py-3.5 transition hover:border-brand/30 hover:bg-brand-soft/20"
+                      >
+                        <span className="mt-[3px] flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-cta-gradient text-white">
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={3} strokeLinecap="round" strokeLinejoin="round" className="h-2.5 w-2.5" aria-hidden>
+                            <path d="M5 12h14" /><path d="m12 5 7 7-7 7" />
+                          </svg>
+                        </span>
+                        <span>
+                          <span className="block text-[14.5px] font-semibold text-foreground group-hover:text-brand transition-colors">{label}</span>
+                          <span className="block text-[13px] text-muted mt-0.5">{sub}</span>
+                        </span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+                <div className="mt-7">
+                  <Link href="/veedge" className="btn-primary focus-ring inline-flex">
+                    Explore Veedge
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4" aria-hidden>
+                      <path d="M5 12h14" /><path d="m12 5 7 7-7 7" />
+                    </svg>
+                  </Link>
+                </div>
+              </div>
+
+              {/* Mini summary card preview */}
+              <div className="lg:col-span-6">
+                <div className="relative">
+                  <div
+                    aria-hidden
+                    className="pointer-events-none absolute -inset-8 opacity-[0.14] blur-3xl"
+                    style={{ background: "linear-gradient(135deg, #6366f1 0%, #ec4899 100%)" }}
+                  />
+                  <div className="relative rounded-[20px] border border-border-strong/70 bg-white p-6 shadow-pop">
+                    <div className="mb-4 flex items-center justify-between border-b border-border/60 pb-4">
+                      <div className="flex items-center gap-2">
+                        <span
+                          className="flex h-6 w-6 items-center justify-center rounded-md text-[10px] font-bold text-white"
+                          style={{ background: "linear-gradient(135deg, #6366f1 0%, #ec4899 100%)" }}
+                          aria-hidden
+                        >V</span>
+                        <span className="text-[13px] font-semibold">Veedge · Summary</span>
+                      </div>
+                      <span className="rounded-full border border-border bg-surface px-2 py-0.5 text-[10px] font-medium text-muted-strong">Example</span>
+                    </div>
+                    <p className="text-[14px] font-semibold leading-snug">The Psychology of Habit Formation</p>
+                    <p className="mt-3 text-[13.5px] leading-[1.7] text-muted">
+                      Habits are built through a cue–routine–reward loop. Identity-based
+                      habits are more durable than outcome-based ones — focus on who you
+                      want to become, not what you want to achieve.
+                    </p>
+                    <div className="mt-4 space-y-1.5">
+                      {[
+                        { t: "0:00", l: "Introduction — the habit loop" },
+                        { t: "2:14", l: "Cue, routine, reward explained" },
+                        { t: "6:30", l: "Identity vs. outcome-based habits" },
+                        { t: "11:05", l: "Environmental design tips" },
+                      ].map(({ t, l }) => (
+                        <div key={t} className="flex items-baseline gap-2.5 text-[12.5px]">
+                          <span className="shrink-0 font-mono font-semibold text-[#6366f1]">{t}</span>
+                          <span className="text-muted">{l}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* ================== HOW IT WORKS ================== */}
         <section id="how-it-works" className="bg-white">
           <div className="mx-auto w-full max-w-6xl px-5 py-24 sm:px-8 sm:py-32">
