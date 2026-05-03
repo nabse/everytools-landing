@@ -11,23 +11,23 @@ const INSTALL_URL =
 const ACCENT = "linear-gradient(135deg, #6366f1 0%, #ec4899 100%)";
 
 export const metadata: Metadata = {
-  title: "AI YouTube Video Summarizer — Fast, Multilingual, With Timestamps | Veedge",
+  title: "AI YouTube Video Summarizer — Fast, Multilingual, One Click | Veedge",
   description:
-    "Veedge is a Chrome extension that summarizes any YouTube video in seconds. Get key ideas, timestamps, and takeaways in your preferred language — at the level of detail you choose.",
+    "Veedge is a Chrome extension that summarizes any YouTube video in seconds. Get key ideas and takeaways in your preferred language — at the level of detail you choose.",
   keywords: [
     "AI YouTube summarizer",
     "YouTube video summarizer extension",
     "fast YouTube summarizer",
-    "YouTube summarizer with timestamps",
     "multilingual YouTube summarizer",
+    "one click YouTube summary",
     "Chrome extension YouTube summary",
     "YouTube summary AI",
     "Veedge",
   ],
   openGraph: {
-    title: "Veedge — AI YouTube Video Summarizer (Fast, Multilingual, With Timestamps)",
+    title: "Veedge — AI YouTube Video Summarizer (Fast, Multilingual, One Click)",
     description:
-      "Summarize any YouTube video in seconds. Key ideas, timestamps, and takeaways in your preferred language.",
+      "Summarize any YouTube video in seconds. Key ideas and takeaways in your preferred language.",
     url: "/veedge",
   },
   alternates: {
@@ -45,7 +45,7 @@ const jsonLd = {
   applicationCategory: "BrowserApplication",
   operatingSystem: "Chrome",
   description:
-    "Veedge is a Chrome extension that summarizes any YouTube video in seconds. It generates structured summaries with key takeaways and timestamps in your preferred language, at the level of detail you choose.",
+    "Veedge is a Chrome extension that summarizes any YouTube video in seconds. It generates structured summaries with key takeaways in your preferred language, at the level of detail you choose.",
   url: "https://everytools.ai/veedge",
   downloadUrl: INSTALL_URL,
   offers: {
@@ -55,7 +55,7 @@ const jsonLd = {
   },
   featureList: [
     "Instant video summarization",
-    "Timestamps for key moments",
+    "One-click video summary",
     "8+ output languages",
     "Adjustable summary depth (Quick, Standard, Detailed)",
     "Works on any YouTube video",
@@ -177,7 +177,7 @@ export default function VeedgePage() {
               <h1 className="max-w-3xl text-[44px] font-semibold leading-[1.02] sm:text-[68px]">
                 AI YouTube Video Summarizer
                 <span className="block text-gradient">
-                  Fast. Multilingual. With Timestamps.
+                  Fast. Multilingual. One click.
                 </span>
               </h1>
 
@@ -187,7 +187,7 @@ export default function VeedgePage() {
               </p>
               <p className="max-w-2xl text-[16px] leading-[1.75] text-muted">
                 Open it on any YouTube video, click Summarize, and receive a structured summary
-                with key takeaways and timestamps — in your preferred language, at the level of
+                with key takeaways — in your preferred language, at the level of
                 detail you choose. Veedge supports 8+ output languages and three depth levels
                 (Quick, Standard, Detailed), regardless of the language the video was recorded in.
               </p>
@@ -382,8 +382,8 @@ export default function VeedgePage() {
                 Veedge vs. other YouTube summarizers
               </h2>
               <p className="mt-4 text-[16px] leading-[1.7] text-muted">
-                Most YouTube summarizers are either too manual, language-locked, or lack
-                timestamps. Here is how Veedge differs.
+                Most YouTube summarizers are either too slow, too manual, or locked to a single
+                language. Here is how Veedge differs.
               </p>
             </div>
 
@@ -410,10 +410,6 @@ export default function VeedgePage() {
                     {
                       feature: "One-click summary",
                       veedge: true, glasp: false, eightify: true, youtube: "partial",
-                    },
-                    {
-                      feature: "Timestamps for key moments",
-                      veedge: true, glasp: false, eightify: "partial", youtube: false,
                     },
                     {
                       feature: "Choose output language (8+)",
@@ -471,19 +467,13 @@ export default function VeedgePage() {
             <h2 id="guides-heading" className="mb-8 text-[20px] font-semibold tracking-tight text-muted-strong">
               Explore specific use cases
             </h2>
-            <div className="grid gap-4 sm:grid-cols-3">
+            <div className="grid gap-4 sm:grid-cols-2">
               {[
                 {
                   href: "/veedge/fast-youtube-summary",
                   title: "Fast YouTube Summarizer",
                   body: "Get the key ideas from any video in under 10 seconds — without watching it.",
                   anchor: "Explore fast YouTube summarization →",
-                },
-                {
-                  href: "/veedge/youtube-summary-timestamps",
-                  title: "YouTube Summary With Timestamps",
-                  body: "Every summary includes clickable timestamps. Jump to what matters, skip what doesn't.",
-                  anchor: "Summarize videos with timestamps →",
                 },
                 {
                   href: "/veedge/multilingual-youtube-summary",
