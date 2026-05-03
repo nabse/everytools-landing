@@ -24,6 +24,7 @@ export default function ExplainItPage() {
           toolName={tool.name}
           processedTitle="Pages are processed, not stored"
           processedBody="The extension accesses the currently open page only when you actively use it. The content is processed temporarily to generate an explanation and discarded right after — it is never retained."
+          privacyPageUrl="/explainit/privacy"
         />
       }
     />

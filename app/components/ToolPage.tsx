@@ -106,6 +106,32 @@ export default function ToolPage({ tool, tailSlot }: ToolPageProps) {
                       Coming soon
                     </span>
                   </a>
+                ) : tool.launchingSoon ? (
+                  <div className="flex flex-col gap-2">
+                    <button
+                      disabled
+                      aria-disabled="true"
+                      className="btn-primary focus-ring opacity-60 cursor-not-allowed"
+                    >
+                      Install {tool.name} — free
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth={2}
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="h-4 w-4"
+                        aria-hidden
+                      >
+                        <path d="M5 12h14" />
+                        <path d="m12 5 7 7-7 7" />
+                      </svg>
+                    </button>
+                    <p className="text-[12.5px] text-muted pl-0.5">
+                      Extension will be available soon on the Chrome Web Store.
+                    </p>
+                  </div>
                 ) : (
                   <a
                     href={tool.installUrl ?? "#install"}
@@ -380,8 +406,52 @@ export default function ToolPage({ tool, tailSlot }: ToolPageProps) {
           </div>
         </section>
 
-        {/* ================== CTA / COMING SOON ================== */}
-        {tool.comingSoon ? (
+        {/* ================== CTA / COMING SOON / LAUNCHING SOON ================== */}
+        {tool.launchingSoon ? (
+          /* ── Launching soon: built, not yet on CWS ── */
+          <section id="install" className="px-5 pb-28 sm:px-8 sm:pb-32">
+            <div className="relative mx-auto w-full max-w-5xl overflow-hidden rounded-[28px] bg-cta-gradient px-8 py-16 text-white shadow-pop sm:px-14 sm:py-20">
+              <div
+                aria-hidden
+                className="pointer-events-none absolute inset-0 opacity-50"
+                style={{
+                  background:
+                    "radial-gradient(600px 260px at 80% 0%, rgba(255,255,255,0.25), transparent 60%)",
+                }}
+              />
+              <div className="relative">
+                <span className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.1em] text-white/90 backdrop-blur">
+                  <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-white" />
+                  Chrome Web Store — coming soon
+                </span>
+                <h2 className="mt-5 max-w-2xl text-[32px] font-semibold leading-[1.1] sm:text-[48px]">
+                  Add {tool.name} to your browser.
+                </h2>
+                <p className="mt-4 max-w-xl text-base text-white/85 sm:text-lg">
+                  A standalone extension. Multilingual by default. Customizable
+                  in a click.
+                </p>
+                <div className="mt-9 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
+                  <button
+                    disabled
+                    aria-disabled="true"
+                    className="btn-on-cta focus-ring opacity-60 cursor-not-allowed"
+                  >
+                    Install {tool.name} — free
+                  </button>
+                  <p className="text-[13px] text-white/70">
+                    Extension will be available soon on the Chrome Web Store.
+                  </p>
+                </div>
+                <div className="mt-6">
+                  <Link href="/" className="btn-ghost-white focus-ring">
+                    Back to EveryTools
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </section>
+        ) : tool.comingSoon ? (
           /* ── Coming soon block ── */
           <section id="coming-soon" className="px-5 pb-28 sm:px-8 sm:pb-32">
             <div className="relative mx-auto w-full max-w-5xl overflow-hidden rounded-[28px] border border-border bg-white px-8 py-14 shadow-elevate sm:px-14 sm:py-18">

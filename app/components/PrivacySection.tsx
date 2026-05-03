@@ -13,12 +13,18 @@ type PrivacySectionProps = {
   processedTitle: string;
   /** Body for point #2 — describes what's read and what's produced. */
   processedBody: string;
+  /**
+   * Optional URL to a dedicated full privacy page. When provided, a
+   * "Read full privacy policy" link is shown at the bottom of the section.
+   */
+  privacyPageUrl?: string;
 };
 
 export default function PrivacySection({
   toolName,
   processedTitle,
   processedBody,
+  privacyPageUrl,
 }: PrivacySectionProps) {
   const points: { title: string; body: string }[] = [
     {
@@ -118,12 +124,22 @@ export default function PrivacySection({
           </div>
         </div>
 
-        {/* Fine print */}
-        <p className="mt-10 text-[12.5px] text-muted">
-          This summary describes {toolName}&apos;s current practices and may be
-          updated to reflect product changes or legal requirements. Material
-          changes will be communicated on this page.
-        </p>
+        {/* Fine print + optional full privacy page link */}
+        <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+          <p className="text-[12.5px] text-muted">
+            This summary describes {toolName}&apos;s current practices and may be
+            updated to reflect product changes or legal requirements. Material
+            changes will be communicated on this page.
+          </p>
+          {privacyPageUrl && (
+            <a
+              href={privacyPageUrl}
+              className="shrink-0 text-[12.5px] font-medium text-brand underline underline-offset-2 transition hover:text-brand-strong"
+            >
+              Read full privacy policy →
+            </a>
+          )}
+        </div>
       </div>
     </section>
   );

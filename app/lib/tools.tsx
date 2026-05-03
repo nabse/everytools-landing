@@ -25,6 +25,12 @@ export type Tool = {
    * both ToolPage and ToolCard surface a visual "Coming soon" indicator.
    */
   comingSoon?: boolean;
+  /**
+   * When true, the tool is built and functional but not yet listed on the
+   * Chrome Web Store. The "Coming soon" copy is replaced by a disabled CTA
+   * with a subtle "launching soon" note. No "Coming soon" text is shown.
+   */
+  launchingSoon?: boolean;
 };
 
 const iconProps = {
@@ -156,7 +162,7 @@ export const tools: Tool[] = [
         <rect x="3" y="16.6" width="12" height="2.4" rx="1.2" />
       </svg>
     ),
-    comingSoon: true,
+    launchingSoon: true,
     features: [
       {
         title: "Explanations in your language",
