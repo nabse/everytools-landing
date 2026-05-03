@@ -33,6 +33,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://everytools.ai/veedge",
   },
+  verification: {
+    google: "WZrdMKFSNTVIPUmh0n20YadnGbZtcz37rj1QTvH8DpY",
+  },
 };
 
 const jsonLd = {
