@@ -97,34 +97,26 @@ export default function VeedgeSummaryDemo() {
               </ul>
             </div>
 
-            {/* Timestamps */}
+            {/* Sections covered */}
             <div className="mt-6">
               <h3 className="mb-3 text-[11px] font-semibold uppercase tracking-[0.1em] text-muted-strong">
-                Timestamps
+                Sections Covered
               </h3>
               <ul className="space-y-2">
                 {[
-                  {
-                    time: "0:00",
-                    label: "Introduction — why habits are hard to change",
-                  },
-                  { time: "2:14", label: "The habit loop: cue, routine, reward" },
-                  { time: "6:30", label: "Identity vs. outcome-based habits" },
-                  {
-                    time: "11:05",
-                    label: "Environmental design for automatic behavior",
-                  },
-                  { time: "15:48", label: "Habit stacking in practice" },
-                  {
-                    time: "20:12",
-                    label: "Breaking bad habits using the same loop",
-                  },
-                ].map(({ time, label }) => (
-                  <li key={time} className="flex items-baseline gap-3 text-[14px]">
-                    <span className="shrink-0 font-mono text-[12.5px] font-semibold text-[#6366f1]">
-                      {time}
-                    </span>
-                    <span className="text-foreground/75">{label}</span>
+                  "Introduction — why habits are hard to change",
+                  "The habit loop: cue, routine, reward",
+                  "Identity vs. outcome-based habits",
+                  "Environmental design for automatic behavior",
+                  "Habit stacking in practice",
+                  "Breaking bad habits using the same loop",
+                ].map((label) => (
+                  <li key={label} className="flex items-start gap-2.5 text-[14px] text-foreground/75">
+                    <span
+                      className="mt-[7px] h-1.5 w-1.5 shrink-0 rounded-full bg-[#6366f1]/40"
+                      aria-hidden
+                    />
+                    {label}
                   </li>
                 ))}
               </ul>
