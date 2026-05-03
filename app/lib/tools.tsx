@@ -162,7 +162,8 @@ export const tools: Tool[] = [
         <rect x="3" y="16.6" width="12" height="2.4" rx="1.2" />
       </svg>
     ),
-    launchingSoon: true,
+    installUrl:
+      "https://chromewebstore.google.com/detail/explainit-%E2%80%94-webpage-ai-ex/hcmelopgdnmjochofiikhhhfpkceccki",
     features: [
       {
         title: "Explanations in your language",
@@ -204,7 +205,8 @@ export const tools: Tool[] = [
         />
       </svg>
     ),
-    installUrl: "/worthit",
+    installUrl:
+      "https://chromewebstore.google.com/detail/worthit-%E2%80%94-ai-decision-ass/mfdhjpglphhbeplnljlhimcgppjbbdng",
     features: [
       {
         title: "Clear verdict on anything",
