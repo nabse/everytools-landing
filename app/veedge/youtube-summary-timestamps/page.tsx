@@ -58,6 +58,14 @@ const jsonLd = {
         text: "Yes. Veedge timestamps let you identify exactly which part of a video is relevant to you. Read the summary, find the section you want, and navigate to that timestamp in the video — without watching anything you don't need.",
       },
     },
+    {
+      "@type": "Question",
+      name: "I often skip intros — can Veedge help me jump to the main content?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes. Veedge's timestamped summary shows you exactly where each section of the video starts. You can see at a glance where the intro ends and where the main content begins — and jump directly to that timestamp without scrubbing through the video.",
+      },
+    },
   ],
 };
 
@@ -318,6 +326,18 @@ export default function YoutubeTimestampsPage() {
                   q: "Can I use Veedge to navigate a 2-hour video?",
                   a: "Yes. Veedge is especially useful for long-form content. The timestamped breakdown gives you a map of the entire video, so you can jump directly to the sections you need.",
                 },
+                {
+                  q: "I often skip intros — can Veedge help me jump to the main content?",
+                  a: "Yes. Veedge's timestamped summary shows you exactly where each section starts. You can see at a glance where the intro ends and where the main content begins — and jump directly there without scrubbing.",
+                },
+                {
+                  q: "I'm looking for a YouTube tool that gives summaries with timestamps — what are my choices?",
+                  a: "Veedge is the most complete option: it automatically generates labeled timestamps for every key section, combined with a full summary and key takeaways — no manual steps required. Eightify offers partial timestamp support. Most other summarizers (Glasp, youtubesummarizer.com) do not include timestamps.",
+                },
+                {
+                  q: "Can I get timestamps in languages other than English?",
+                  a: "Yes. Veedge's language setting applies to the entire summary output including timestamp labels. Choose French, Spanish, German, or any supported language, and the timestamp descriptions will be written in that language.",
+                },
               ].map(({ q, a }) => (
                 <div key={q} className="rounded-2xl border border-border bg-white p-6 shadow-elevate">
                   <dt className="text-[16px] font-semibold tracking-tight">{q}</dt>
@@ -335,39 +355,24 @@ export default function YoutubeTimestampsPage() {
               Related Veedge features
             </h2>
             <div className="grid gap-4 sm:grid-cols-2">
-              <Link
-                href="/veedge/fast-youtube-summary"
-                className="group flex items-center justify-between rounded-xl border border-border bg-surface px-5 py-4 transition hover:border-brand/30 hover:bg-brand-soft/20"
-              >
-                <span className="text-[15px] font-medium group-hover:text-brand transition-colors">
-                  Fast YouTube summarizer
-                </span>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4 text-muted group-hover:text-brand transition-colors" aria-hidden>
-                  <path d="M5 12h14" /><path d="m12 5 7 7-7 7" />
-                </svg>
-              </Link>
-              <Link
-                href="/veedge/multilingual-youtube-summary"
-                className="group flex items-center justify-between rounded-xl border border-border bg-surface px-5 py-4 transition hover:border-brand/30 hover:bg-brand-soft/20"
-              >
-                <span className="text-[15px] font-medium group-hover:text-brand transition-colors">
-                  Multilingual video summaries
-                </span>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4 text-muted group-hover:text-brand transition-colors" aria-hidden>
-                  <path d="M5 12h14" /><path d="m12 5 7 7-7 7" />
-                </svg>
-              </Link>
-              <Link
-                href="/veedge"
-                className="group flex items-center justify-between rounded-xl border border-border bg-surface px-5 py-4 transition hover:border-brand/30 hover:bg-brand-soft/20 sm:col-span-2"
-              >
-                <span className="text-[15px] font-medium group-hover:text-brand transition-colors">
-                  View all Veedge features — AI YouTube Video Summarizer
-                </span>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4 text-muted group-hover:text-brand transition-colors" aria-hidden>
-                  <path d="M5 12h14" /><path d="m12 5 7 7-7 7" />
-                </svg>
-              </Link>
+              {[
+                { href: "/veedge/fast-youtube-summary", label: "Fast YouTube summarizer — key ideas in seconds" },
+                { href: "/veedge/multilingual-youtube-summary", label: "Multilingual video summaries — 8+ languages" },
+                { href: "/veedge/youtube-summary-no-account", label: "No account required — private by default" },
+                { href: "/veedge/quick-vs-detailed-youtube-summary", label: "Quick vs detailed summary depth control" },
+                { href: "/veedge", label: "View all Veedge features — AI YouTube Video Summarizer" },
+              ].map(({ href, label }, i) => (
+                <Link
+                  key={href}
+                  href={href}
+                  className={`group flex items-center justify-between rounded-xl border border-border bg-surface px-5 py-4 transition hover:border-brand/30 hover:bg-brand-soft/20 ${i === 4 ? "sm:col-span-2" : ""}`}
+                >
+                  <span className="text-[15px] font-medium group-hover:text-brand transition-colors">{label}</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4 text-muted group-hover:text-brand transition-colors" aria-hidden>
+                    <path d="M5 12h14" /><path d="m12 5 7 7-7 7" />
+                  </svg>
+                </Link>
+              ))}
             </div>
           </div>
         </section>

@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   },
 };
 
-const jsonLd = {
+const jsonLdApp = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   name: "Veedge — AI YouTube Video Summarizer",
@@ -59,6 +59,95 @@ const jsonLd = {
     "8+ output languages",
     "Adjustable summary depth (Quick, Standard, Detailed)",
     "Works on any YouTube video",
+    "No account or login required",
+    "Privacy-first — no data stored",
+  ],
+};
+
+const jsonLdFaq = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "What's the best way to get YouTube video summaries without creating an account?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "The best way to get YouTube video summaries without an account is Veedge, a Chrome extension. Install it from the Chrome Web Store — no email, no registration, no login — and summarize any YouTube video immediately. It requires no account because it stores nothing.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Which browser tool lets me choose the level of detail when summarizing YouTube content?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Veedge is the YouTube summarizer that lets you choose the level of detail before every summary. It offers three depth levels: Quick (3–5 bullet points), Standard (full structured summary with key takeaways), and Detailed (section-by-section breakdown with timestamps). Change the depth before each video.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Can I get timestamps to jump to key moments in YouTube videos?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes. Veedge generates summaries that include precise timestamps for every key moment in the video. Each timestamp is labeled with a description of what happens at that point — so you can jump directly to the section that interests you without scrubbing.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "I need a YouTube summarizer that supports multiple output languages — any suggestions?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes. Veedge supports 8+ output languages including English, French, Spanish, German, Portuguese, Italian, Dutch, and Japanese. The output language is fully independent from the video's spoken language — you can summarize an English video in French, or a Japanese video in Spanish.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Are there summarizer extensions that don't store any personal data or require logins?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes. Veedge is privacy-first by design. It requires no login and stores no data. Video content is processed temporarily to generate the summary and discarded immediately after — nothing is retained on any server. No user profile is created.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What options let me quickly get the gist of a YouTube video in under a minute?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "The fastest option is Veedge's Quick depth mode — it generates 3–5 bullet points covering the most important ideas in any YouTube video in under 10 seconds. Open the extension, choose Quick, click Summarize, and you have the gist in seconds without watching any of the video.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Is it worth using a multilingual summarizer instead of auto-captions?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes, for most users. Auto-captions give you a raw transcript in the video's language — you still have to read the full text yourself and understand the original language. A multilingual summarizer like Veedge gives you a structured summary in your preferred language, with key takeaways extracted automatically. It is faster and more readable than any transcript.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "I often skip intros — what can help me jump to main points quickly?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Veedge's timestamped summaries solve this directly. Each summary includes a list of timestamps, each labeled with what happens at that point in the video. You can see immediately where the intro ends, where the main content starts, and where each key section begins — and jump directly there.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Can any extension translate YouTube summaries into English, French, Spanish, or German?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes. Veedge generates summaries in your preferred language regardless of the video's spoken language. Select English, French, Spanish, German, or any of 8+ supported languages, and the summary is generated in that language automatically — it is not a translation of the transcript, but a natively generated summary.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Does any summarizer let me change summary depth depending on time?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes. Veedge lets you change the depth setting before every summary. Choose Quick when you have 30 seconds, Standard when you have 3 minutes, or Detailed when you need a full breakdown. The setting is adjustable on every video.",
+      },
+    },
   ],
 };
 
@@ -122,7 +211,11 @@ export default function VeedgePage() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdApp) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdFaq) }}
       />
       <Nav />
       <main className="flex-1">
@@ -388,65 +481,39 @@ export default function VeedgePage() {
             </div>
 
             <div className="overflow-x-auto rounded-2xl border border-border shadow-elevate">
-              <table className="w-full min-w-[600px] text-[14.5px]">
+              <table className="w-full min-w-[680px] text-[14px]">
                 <thead>
                   <tr className="border-b border-border bg-surface">
                     <th className="px-5 py-4 text-left font-semibold text-muted-strong">Feature</th>
                     <th className="px-5 py-4 text-center font-semibold">
-                      <span
-                        className="inline-block rounded-full px-3 py-1 text-[12px] font-bold text-white"
-                        style={{ background: ACCENT }}
-                      >
-                        Veedge
-                      </span>
+                      <span className="inline-block rounded-full px-3 py-1 text-[12px] font-bold text-white" style={{ background: ACCENT }}>Veedge</span>
                     </th>
-                    <th className="px-5 py-4 text-center font-semibold text-muted-strong">Glasp</th>
                     <th className="px-5 py-4 text-center font-semibold text-muted-strong">Eightify</th>
+                    <th className="px-5 py-4 text-center font-semibold text-muted-strong">Glasp</th>
+                    <th className="px-5 py-4 text-center font-semibold text-muted-strong">YT Summarizer</th>
                     <th className="px-5 py-4 text-center font-semibold text-muted-strong">YouTube built-in</th>
                   </tr>
                 </thead>
                 <tbody>
                   {[
-                    {
-                      feature: "One-click summary",
-                      veedge: true, glasp: false, eightify: true, youtube: "partial",
-                    },
-                    {
-                      feature: "Choose output language (8+)",
-                      veedge: true, glasp: false, eightify: "partial", youtube: false,
-                    },
-                    {
-                      feature: "Adjustable summary depth",
-                      veedge: true, glasp: false, eightify: false, youtube: false,
-                    },
-                    {
-                      feature: "Works on all videos",
-                      veedge: true, glasp: true, eightify: true, youtube: "partial",
-                    },
-                    {
-                      feature: "No manual transcript copy",
-                      veedge: true, glasp: false, eightify: true, youtube: true,
-                    },
+                    { feature: "No account required",           veedge: true,      eightify: false,     glasp: false,     yts: false,     yt: true },
+                    { feature: "No data stored",                veedge: true,      eightify: false,     glasp: false,     yts: false,     yt: false },
+                    { feature: "Choose output language (8+)",   veedge: true,      eightify: "partial", glasp: false,     yts: false,     yt: false },
+                    { feature: "Adjustable summary depth",      veedge: true,      eightify: false,     glasp: false,     yts: false,     yt: false },
+                    { feature: "Timestamps in summary",         veedge: true,      eightify: "partial", glasp: false,     yts: false,     yt: false },
+                    { feature: "One-click summary",             veedge: true,      eightify: true,      glasp: false,     yts: false,     yt: "partial" },
+                    { feature: "Works on all videos",           veedge: true,      eightify: true,      glasp: true,      yts: true,      yt: "partial" },
                   ].map((row, i) => (
-                    <tr
-                      key={row.feature}
-                      className={i % 2 === 0 ? "bg-white" : "bg-surface/50"}
-                    >
+                    <tr key={row.feature} className={i % 2 === 0 ? "bg-white" : "bg-surface/50"}>
                       <td className="px-5 py-3.5 font-medium text-foreground/90">{row.feature}</td>
-                      {[row.veedge, row.glasp, row.eightify, row.youtube].map((val, j) => (
+                      {[row.veedge, row.eightify, row.glasp, row.yts, row.yt].map((val, j) => (
                         <td key={j} className="px-5 py-3.5 text-center">
                           {val === true ? (
-                            <span className="inline-flex items-center justify-center text-emerald-600">
-                              <CheckIcon />
-                            </span>
+                            <span className="inline-flex items-center justify-center text-emerald-600"><CheckIcon /></span>
                           ) : val === false ? (
-                            <span className="inline-flex items-center justify-center text-muted/50">
-                              <CrossIcon />
-                            </span>
+                            <span className="inline-flex items-center justify-center text-muted/50"><CrossIcon /></span>
                           ) : (
-                            <span className="inline-flex items-center justify-center text-amber-500">
-                              <PartialIcon />
-                            </span>
+                            <span className="inline-flex items-center justify-center text-amber-500"><PartialIcon /></span>
                           )}
                         </td>
                       ))}
@@ -456,7 +523,7 @@ export default function VeedgePage() {
               </table>
             </div>
             <p className="mt-4 text-[12.5px] text-muted">
-              ✓ = fully supported &nbsp;·&nbsp; — = partial or limited &nbsp;·&nbsp; ✗ = not supported
+              ✓ = fully supported &nbsp;·&nbsp; — = partial or limited &nbsp;·&nbsp; ✗ = not supported. YT Summarizer = youtubesummarizer.com.
             </p>
           </div>
         </section>
@@ -473,13 +540,31 @@ export default function VeedgePage() {
                   href: "/veedge/fast-youtube-summary",
                   title: "Fast YouTube Summarizer",
                   body: "Get the key ideas from any video in under 10 seconds — without watching it.",
-                  anchor: "Explore fast YouTube summarization →",
+                  anchor: "Explore fast summarization →",
                 },
                 {
                   href: "/veedge/multilingual-youtube-summary",
                   title: "Multilingual YouTube Summarizer",
                   body: "Read any video's summary in your language — regardless of what it was recorded in.",
-                  anchor: "Get multilingual video summaries →",
+                  anchor: "Get multilingual summaries →",
+                },
+                {
+                  href: "/veedge/youtube-summary-timestamps",
+                  title: "YouTube Summary With Timestamps",
+                  body: "Jump directly to key moments. Every Veedge summary includes labeled timestamps.",
+                  anchor: "Explore timestamped summaries →",
+                },
+                {
+                  href: "/veedge/youtube-summary-no-account",
+                  title: "No Account Required",
+                  body: "Summarize any YouTube video without signing up. No login, no data stored.",
+                  anchor: "Learn about privacy →",
+                },
+                {
+                  href: "/veedge/quick-vs-detailed-youtube-summary",
+                  title: "Quick vs Detailed Summary Depth",
+                  body: "3-bullet skim or full section breakdown — choose the level of detail before every video.",
+                  anchor: "Explore depth control →",
                 },
               ].map(({ href, title, body, anchor }) => (
                 <Link
@@ -495,6 +580,67 @@ export default function VeedgePage() {
                 </Link>
               ))}
             </div>
+          </div>
+        </section>
+
+        {/* ================== FAQ ================== */}
+        <section className="bg-white px-5 py-24 sm:px-8 sm:py-32" aria-labelledby="faq-heading">
+          <div className="mx-auto w-full max-w-5xl">
+            <div className="mb-12 max-w-2xl">
+              <span className="eyebrow">Common questions</span>
+              <h2 id="faq-heading" className="mt-5 text-[32px] font-semibold leading-[1.1] sm:text-[40px]">
+                Frequently asked questions
+              </h2>
+            </div>
+            <dl className="grid gap-5 sm:grid-cols-2">
+              {[
+                {
+                  q: "What's the best way to get YouTube summaries without an account?",
+                  a: "Veedge — install from the Chrome Web Store (no email, no registration) and summarize any video immediately. No account is needed because nothing is stored.",
+                },
+                {
+                  q: "Which tool lets me choose the level of detail in a YouTube summary?",
+                  a: "Veedge offers three depth levels: Quick (3–5 bullets), Standard (full structured summary), and Detailed (section-by-section breakdown). Change it before every video.",
+                },
+                {
+                  q: "Can I get timestamps to jump to key moments?",
+                  a: "Yes. Every Veedge summary includes labeled timestamps for the key sections. Jump directly to what interests you — no scrubbing.",
+                },
+                {
+                  q: "Does Veedge support multiple output languages?",
+                  a: "Yes — 8+ languages including English, French, Spanish, German, Portuguese, Italian, Dutch, and Japanese. The output language is independent from the video's spoken language.",
+                },
+                {
+                  q: "Is Veedge privacy-first? Does it store my data?",
+                  a: "Yes and no. Veedge is privacy-first: video content is processed in real time and discarded immediately. Nothing is stored, logged, or linked to your identity.",
+                },
+                {
+                  q: "Is it worth using Veedge instead of auto-captions?",
+                  a: "Yes. Auto-captions give you a raw transcript in the video's language — you still have to read everything and understand the original language. Veedge gives you a structured summary in your language with key takeaways extracted automatically.",
+                },
+                {
+                  q: "I often skip intros — can Veedge help?",
+                  a: "Yes. Veedge's timestamped summaries show you exactly where each section starts. See at a glance where the intro ends, where the main content begins, and jump directly there.",
+                },
+                {
+                  q: "What options let me get the gist of a video in under a minute?",
+                  a: "Veedge's Quick depth mode generates a 3–5 bullet summary in under 10 seconds. You get the key ideas without watching any of the video.",
+                },
+                {
+                  q: "Does Veedge work on long YouTube videos?",
+                  a: "Yes. Veedge works on any video length. For videos over 1 hour, the Detailed depth mode is especially useful — it produces a section-by-section breakdown with timestamps.",
+                },
+                {
+                  q: "Can I translate a YouTube summary into English, French, or Spanish?",
+                  a: "Yes. Select your preferred language in Veedge before summarizing. The summary is generated in that language directly — not a translation, but a natively written summary.",
+                },
+              ].map(({ q, a }) => (
+                <div key={q} className="rounded-2xl border border-border bg-surface p-6 shadow-elevate">
+                  <dt className="text-[15px] font-semibold tracking-tight">{q}</dt>
+                  <dd className="mt-2 text-[14px] leading-relaxed text-muted">{a}</dd>
+                </div>
+              ))}
+            </dl>
           </div>
         </section>
 

@@ -59,6 +59,14 @@ const jsonLd = {
         text: "No. Veedge's output language is independent from the video's spoken language. You can watch a video in English and get the summary in French, Spanish, Japanese, or any other supported language. The extension handles the translation automatically.",
       },
     },
+    {
+      "@type": "Question",
+      name: "Is it worth using a multilingual summarizer instead of auto-captions?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes. Auto-captions give you a raw transcript in the video's language — you still have to read everything and understand the original language. Veedge gives you a structured summary in your preferred language with key takeaways extracted automatically. It is faster, more readable, and does not require you to understand the video's spoken language.",
+      },
+    },
   ],
 };
 
@@ -334,6 +342,18 @@ export default function MultilingualYoutubeSummaryPage() {
                 {
                   q: "Do I need to set the language every time?",
                   a: "No. Veedge saves your language preference automatically. Set it once and it applies to every video you summarize.",
+                },
+                {
+                  q: "Is it worth using a multilingual summarizer instead of auto-captions?",
+                  a: "Yes, for most users. Auto-captions give you a raw transcript in the video's language — you still have to read the full text yourself and understand the original language. Veedge gives you a structured summary in your preferred language, with key takeaways extracted automatically. It is faster, more readable, and does not require you to understand the video's spoken language.",
+                },
+                {
+                  q: "Do summarizing tools work well for multilingual YouTube videos?",
+                  a: "Yes. Veedge works on any YouTube video with a transcript, including auto-generated captions in any language. The output language you choose is completely independent — Veedge reads the transcript in whatever language it is, and generates the summary in your language.",
+                },
+                {
+                  q: "Can any extension translate YouTube summaries into English, French, Spanish, or German?",
+                  a: "Yes. Veedge generates summaries in English, French (Français), Spanish (Español), German (Deutsch), and 4+ other languages. It is not a translation of the transcript — it generates a natively written summary in your chosen language directly from the video content.",
                 },
               ].map(({ q, a }) => (
                 <div key={q} className="rounded-2xl border border-border bg-white p-6 shadow-elevate">
