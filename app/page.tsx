@@ -307,14 +307,14 @@ export default function Home() {
                   <span className="text-gradient">AI YouTube Summarizer</span>
                 </h2>
                 <p className="mt-5 text-[16px] leading-[1.75] text-muted">
-                  Veedge summarizes any YouTube video in seconds — key ideas,
-                  timestamps, and takeaways in your preferred language, at the
-                  level of detail you choose.
+                  Veedge summarizes any YouTube video in seconds — key ideas
+                  and takeaways in your preferred language, at the level of
+                  detail you choose.
                 </p>
                 <ul className="mt-7 space-y-3">
                   {[
                     { href: "/veedge/fast-youtube-summary", label: "Fast YouTube summarizer", sub: "Get key ideas in under 10 seconds" },
-                    { href: "/veedge/youtube-summary-timestamps", label: "Summarize videos with timestamps", sub: "Jump to what matters, skip what doesn't" },
+                    { href: "/veedge/quick-vs-detailed-youtube-summary", label: "Adjustable summary depth", sub: "Quick overview or full detailed breakdown" },
                     { href: "/veedge/multilingual-youtube-summary", label: "Multilingual video summaries", sub: "Summaries in your language, for any video" },
                   ].map(({ href, label, sub }) => (
                     <li key={href}>
