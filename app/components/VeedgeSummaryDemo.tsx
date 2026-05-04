@@ -1,158 +1,165 @@
-"use client";
-
 export default function VeedgeSummaryDemo() {
   return (
     <section className="border-t border-border/60 bg-surface px-5 py-24 sm:px-8 sm:py-32">
       <div className="mx-auto w-full max-w-5xl">
         {/* Section header */}
-        <div className="no-print mb-12 max-w-2xl">
+        <div className="mb-14 max-w-2xl">
           <span className="eyebrow">See it in action</span>
           <h2 className="mt-5 text-[32px] font-semibold leading-[1.1] sm:text-[40px]">
-            Your summary,{" "}
-            <span className="text-muted">ready to use.</span>
+            Open it. Click Summarize.{" "}
+            <span className="text-muted">Done.</span>
           </h2>
           <p className="mt-4 text-[16px] leading-[1.7] text-muted">
-            Veedge generates a clean, structured summary of any YouTube video.
-            Copy it, save it, or print it — all in one click.
+            This is what Veedge looks like when you open it on a YouTube video.
+            Choose your language and depth, then generate — no setup, no account.
           </p>
         </div>
 
-        {/* Summary card */}
-        <div className="relative">
-          <div
-            aria-hidden
-            className="no-print pointer-events-none absolute -inset-8 opacity-[0.12] blur-3xl"
-            style={{
-              background: "linear-gradient(135deg, #6366f1 0%, #ec4899 100%)",
-            }}
-          />
+        {/* Extension popup mockup */}
+        <div className="flex justify-center">
+          <div className="relative w-full max-w-[400px]">
+            {/* Glow */}
+            <div
+              aria-hidden
+              className="pointer-events-none absolute -inset-10 opacity-[0.15] blur-3xl"
+              style={{ background: "linear-gradient(135deg, #6366f1 0%, #ec4899 100%)" }}
+            />
 
-          <div className="veedge-print-area relative rounded-[22px] border border-border-strong/70 bg-white p-6 shadow-pop sm:p-8">
-            {/* Card header */}
-            <div className="no-print mb-6 flex items-center justify-between border-b border-border/60 pb-5">
-              <div className="flex items-center gap-2.5">
-                <span
-                  className="flex h-7 w-7 items-center justify-center rounded-lg text-[11px] font-bold text-white"
-                  style={{
-                    background:
-                      "linear-gradient(135deg, #6366f1 0%, #ec4899 100%)",
-                  }}
-                  aria-hidden
-                >
-                  V
-                </span>
-                <span className="text-[13.5px] font-semibold tracking-tight">
-                  Veedge · Summary
-                </span>
-              </div>
-              <span className="rounded-full border border-border bg-surface px-2.5 py-1 text-[11px] font-medium text-muted-strong">
-                Example output
-              </span>
-            </div>
+            {/* Popup shell */}
+            <div className="relative overflow-hidden rounded-2xl border border-border-strong/60 bg-[#f7f7fb] shadow-pop">
 
-            {/* Video title */}
-            <h2 className="text-[18px] font-semibold leading-snug tracking-tight sm:text-[20px]">
-              The Psychology of Habit Formation — How to Make Any Habit Stick
-            </h2>
-
-            {/* Summary */}
-            <div className="mt-5">
-              <h3 className="mb-2 text-[11px] font-semibold uppercase tracking-[0.1em] text-muted-strong">
-                Summary
-              </h3>
-              <p className="text-[15px] leading-[1.75] text-foreground/85">
-                This video explores the science of habit formation using research
-                from behavioral psychology. The speaker breaks down how habits
-                are built through a cue–routine–reward loop, and how
-                understanding that structure makes it possible to build new
-                habits deliberately or break unwanted ones. Key emphasis is
-                placed on the role of identity in sustaining long-term behavior
-                change.
-              </p>
-            </div>
-
-            {/* Key takeaways */}
-            <div className="mt-6">
-              <h3 className="mb-3 text-[11px] font-semibold uppercase tracking-[0.1em] text-muted-strong">
-                Key Takeaways
-              </h3>
-              <ul className="space-y-2.5">
-                {[
-                  "Habits are built on three components: cue, routine, and reward — the habit loop.",
-                  "Identity-based habits are more durable than outcome-based ones: focus on who you want to become.",
-                  "Small environment changes are more reliable than willpower for triggering new behaviors.",
-                  "Habit stacking — anchoring a new habit to an existing one — dramatically increases consistency.",
-                ].map((item) => (
-                  <li
-                    key={item}
-                    className="flex items-start gap-3 text-[14.5px] leading-relaxed text-foreground/80"
+              {/* ── Top bar ── */}
+              <div className="flex items-center justify-between border-b border-border/50 bg-white px-4 py-3">
+                <div className="flex items-center gap-2">
+                  <span
+                    className="flex h-6 w-6 items-center justify-center rounded-md text-[11px] font-bold text-white"
+                    style={{ background: "linear-gradient(135deg, #6366f1 0%, #ec4899 100%)" }}
+                    aria-hidden
                   >
-                    <span
-                      className="mt-[7px] h-1.5 w-1.5 shrink-0 rounded-full bg-[#6366f1]"
-                      aria-hidden
-                    />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
+                    V
+                  </span>
+                  <span className="text-[14px] font-semibold tracking-tight text-foreground">Veedge</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-200 bg-emerald-50 px-2.5 py-1 text-[11.5px] font-semibold text-emerald-700">
+                    <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" aria-hidden />
+                    7 credits
+                  </span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4 text-muted" aria-hidden>
+                    <path d="M18 6 6 18M6 6l12 12" />
+                  </svg>
+                </div>
+              </div>
 
-            {/* Sections covered */}
-            <div className="mt-6">
-              <h3 className="mb-3 text-[11px] font-semibold uppercase tracking-[0.1em] text-muted-strong">
-                Sections Covered
-              </h3>
-              <ul className="space-y-2">
-                {[
-                  "Introduction — why habits are hard to change",
-                  "The habit loop: cue, routine, reward",
-                  "Identity vs. outcome-based habits",
-                  "Environmental design for automatic behavior",
-                  "Habit stacking in practice",
-                  "Breaking bad habits using the same loop",
-                ].map((label) => (
-                  <li key={label} className="flex items-start gap-2.5 text-[14px] text-foreground/75">
-                    <span
-                      className="mt-[7px] h-1.5 w-1.5 shrink-0 rounded-full bg-[#6366f1]/40"
-                      aria-hidden
-                    />
-                    {label}
-                  </li>
-                ))}
-              </ul>
-            </div>
+              <div className="space-y-3 p-4">
 
-            {/* Print-only branding footer */}
-            <div className="print-only mt-8 border-t border-gray-200 pt-4 text-[12px] text-gray-500">
-              Generated with Veedge · everytools.ai/veedge
-            </div>
+                {/* ── Video card ── */}
+                <div className="flex items-start gap-3 rounded-xl border border-border bg-white p-3">
+                  {/* Thumbnail */}
+                  <div
+                    className="relative flex h-[52px] w-[88px] shrink-0 items-center justify-center overflow-hidden rounded-lg"
+                    style={{ background: "linear-gradient(135deg, #1a1a2e 0%, #16213e 100%)" }}
+                    aria-hidden
+                  >
+                    <svg viewBox="0 0 24 24" fill="white" className="h-6 w-6 opacity-80" aria-hidden>
+                      <path d="M7 5v14l12-7z" />
+                    </svg>
+                    {/* Fake duration badge */}
+                    <span className="absolute bottom-1 right-1 rounded bg-black/70 px-1 py-0.5 text-[9px] font-semibold text-white">12:48</span>
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <p className="truncate text-[12.5px] font-semibold text-foreground leading-snug">
+                      The Psychology of Habit Formation
+                    </p>
+                    <p className="mt-0.5 text-[11px] text-muted">Veritasium</p>
+                    <p className="mt-0.5 truncate text-[10px] text-muted/70">youtube.com/watch?v=…</p>
+                  </div>
+                  <button type="button" disabled className="shrink-0 rounded-lg border border-border bg-surface px-2.5 py-1.5 text-[11.5px] font-semibold text-foreground/70">
+                    Change
+                  </button>
+                </div>
 
-            {/* Action buttons */}
-            <div className="no-print mt-8 flex flex-wrap items-center gap-3 border-t border-border/60 pt-5">
-              <button
-                type="button"
-                onClick={() => window.print()}
-                className="focus-ring inline-flex items-center gap-2 rounded-full border border-border bg-white px-4 py-2 text-[13.5px] font-semibold text-foreground shadow-soft transition hover:border-border-strong hover:bg-surface"
-              >
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="h-4 w-4"
-                  aria-hidden
+                {/* ── Language ── */}
+                <div>
+                  <label className="mb-1.5 block text-[10px] font-semibold uppercase tracking-[0.1em] text-muted-strong">
+                    Summary Language
+                  </label>
+                  <div className="flex items-center justify-between rounded-xl border border-border bg-white px-3 py-2.5">
+                    <span className="text-[13px] font-medium text-foreground">Auto-detect</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4 text-muted" aria-hidden>
+                      <path d="m6 9 6 6 6-6" />
+                    </svg>
+                  </div>
+                  <div className="mt-2 rounded-xl border border-border bg-white px-3 py-2.5">
+                    <p className="text-[12px] text-muted-strong">
+                      Detected: <strong className="font-semibold text-foreground">English</strong> — is this correct?
+                    </p>
+                    <div className="mt-2 flex gap-2">
+                      <button type="button" disabled className="inline-flex items-center gap-1 rounded-lg border border-emerald-200 bg-emerald-50 px-2.5 py-1 text-[11.5px] font-semibold text-emerald-700">
+                        ✓ Yes
+                      </button>
+                      <button type="button" disabled className="inline-flex items-center gap-1 rounded-lg border border-border bg-surface px-2.5 py-1 text-[11.5px] font-semibold text-foreground/70">
+                        ↩ Change
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                {/* ── Depth ── */}
+                <div>
+                  <label className="mb-1.5 block text-[10px] font-semibold uppercase tracking-[0.1em] text-muted-strong">
+                    Summary Depth
+                  </label>
+                  <div className="grid grid-cols-3 overflow-hidden rounded-xl border border-border bg-white">
+                    {["Quick", "Balanced", "Deep"].map((d, i) => (
+                      <button
+                        key={d}
+                        type="button"
+                        disabled
+                        className={[
+                          "py-2.5 text-[12.5px] font-semibold transition",
+                          i === 0
+                            ? "bg-foreground text-background shadow-sm"
+                            : "text-muted",
+                          i > 0 ? "border-l border-border" : "",
+                        ].join(" ")}
+                      >
+                        {d}
+                      </button>
+                    ))}
+                  </div>
+                  <p className="mt-1.5 text-[11px] text-muted">
+                    Very concise · ~30 sec read · 1 credit/hr of video
+                  </p>
+                </div>
+
+                {/* ── Custom instructions ── */}
+                <div>
+                  <label className="mb-1.5 block text-[10px] font-semibold uppercase tracking-[0.1em] text-muted-strong">
+                    Custom Instructions <span className="font-normal normal-case tracking-normal text-muted">(optional)</span>
+                  </label>
+                  <div className="min-h-[60px] rounded-xl border border-border bg-white px-3 py-2.5">
+                    <p className="text-[11.5px] text-muted/60">
+                      e.g. "Summarize in bullet points" · "Extract action items only"
+                    </p>
+                  </div>
+                </div>
+
+                {/* ── Generate button ── */}
+                <button
+                  type="button"
+                  disabled
+                  className="w-full rounded-xl py-3.5 text-[14px] font-bold text-white shadow-soft"
+                  style={{ background: "linear-gradient(135deg, #6366f1 0%, #ec4899 100%)" }}
                 >
-                  <polyline points="6 9 6 2 18 2 18 9" />
-                  <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" />
-                  <rect x="6" y="14" width="12" height="8" />
-                </svg>
-                Print summary
-              </button>
-              <span className="text-[12px] text-muted">
-                Example of what the real extension produces
-              </span>
+                  ✦ Generate summary
+                </button>
+
+                {/* ── Footer ── */}
+                <p className="text-center text-[11px] text-muted">
+                  4m · 1 credit · No account needed
+                </p>
+              </div>
             </div>
           </div>
         </div>
