@@ -57,7 +57,7 @@ const jsonLdApp = {
     "Instant video summarization",
     "One-click video summary",
     "8+ output languages",
-    "Adjustable summary depth (Quick, Standard, Detailed)",
+    "Adjustable summary depth (Quick, Balanced, Deep)",
     "Works on any YouTube video",
     "No account or login required",
     "Privacy-first — no data stored",
@@ -81,15 +81,7 @@ const jsonLdFaq = {
       name: "Which browser tool lets me choose the level of detail when summarizing YouTube content?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Veedge is the YouTube summarizer that lets you choose the level of detail before every summary. It offers three depth levels: Quick (3–5 bullet points), Standard (full structured summary with key takeaways), and Detailed (section-by-section breakdown with timestamps). Change the depth before each video.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Can I get timestamps to jump to key moments in YouTube videos?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Yes. Veedge generates summaries that include precise timestamps for every key moment in the video. Each timestamp is labeled with a description of what happens at that point — so you can jump directly to the section that interests you without scrubbing.",
+        text: "Veedge is the YouTube summarizer that lets you choose the level of detail before every summary. It offers three depth levels: Quick (3–5 bullet points), Balanced (full structured summary with key takeaways), and Deep (complete section-by-section breakdown). Change the depth before each video.",
       },
     },
     {
@@ -129,7 +121,7 @@ const jsonLdFaq = {
       name: "I often skip intros — what can help me jump to main points quickly?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Veedge's timestamped summaries solve this directly. Each summary includes a list of timestamps, each labeled with what happens at that point in the video. You can see immediately where the intro ends, where the main content starts, and where each key section begins — and jump directly there.",
+        text: "Use Veedge's Quick depth mode to get a 3–5 bullet summary in seconds. You can see at a glance what the video is actually about and decide whether to watch or where to focus — without scrubbing through the video.",
       },
     },
     {
@@ -145,7 +137,7 @@ const jsonLdFaq = {
       name: "Does any summarizer let me change summary depth depending on time?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes. Veedge lets you change the depth setting before every summary. Choose Quick when you have 30 seconds, Standard when you have 3 minutes, or Detailed when you need a full breakdown. The setting is adjustable on every video.",
+        text: "Yes. Veedge lets you change the depth setting before every summary. Choose Quick when you have 30 seconds, Balanced when you have 3 minutes, or Deep when you need a full breakdown. The setting is adjustable on every video.",
       },
     },
   ],
@@ -282,7 +274,7 @@ export default function VeedgePage() {
                 Open it on any YouTube video, click Summarize, and receive a structured summary
                 with key takeaways — in your preferred language, at the level of
                 detail you choose. Veedge supports 8+ output languages and three depth levels
-                (Quick, Standard, Detailed), regardless of the language the video was recorded in.
+                (Quick, Balanced, Deep), regardless of the language the video was recorded in.
               </p>
 
               {/* CTAs */}
@@ -457,8 +449,8 @@ export default function VeedgePage() {
                 </h3>
                 <p className="mt-3 text-[15px] leading-[1.75] text-muted">
                   Choose how much detail you need before running Veedge. <strong className="font-semibold text-foreground/90">Quick</strong> gives
-                  you 3–5 bullet points for a fast skim. <strong className="font-semibold text-foreground/90">Standard</strong> provides a
-                  structured paragraph summary with key takeaways. <strong className="font-semibold text-foreground/90">Detailed</strong> delivers
+                  you 3–5 bullet points for a fast skim. <strong className="font-semibold text-foreground/90">Balanced</strong> provides a
+                  structured paragraph summary with key takeaways. <strong className="font-semibold text-foreground/90">Deep</strong> delivers
                   a full breakdown with every major section covered.
                 </p>
               </article>
@@ -500,7 +492,6 @@ export default function VeedgePage() {
                     { feature: "No data stored",                veedge: true,      eightify: false,     glasp: false,     yts: false,     yt: false },
                     { feature: "Choose output language (8+)",   veedge: true,      eightify: "partial", glasp: false,     yts: false,     yt: false },
                     { feature: "Adjustable summary depth",      veedge: true,      eightify: false,     glasp: false,     yts: false,     yt: false },
-                    { feature: "Timestamps in summary",         veedge: true,      eightify: "partial", glasp: false,     yts: false,     yt: false },
                     { feature: "One-click summary",             veedge: true,      eightify: true,      glasp: false,     yts: false,     yt: "partial" },
                     { feature: "Works on all videos",           veedge: true,      eightify: true,      glasp: true,      yts: true,      yt: "partial" },
                   ].map((row, i) => (
@@ -549,12 +540,6 @@ export default function VeedgePage() {
                   anchor: "Get multilingual summaries →",
                 },
                 {
-                  href: "/veedge/youtube-summary-timestamps",
-                  title: "YouTube Summary With Timestamps",
-                  body: "Jump directly to key moments. Every Veedge summary includes labeled timestamps.",
-                  anchor: "Explore timestamped summaries →",
-                },
-                {
                   href: "/veedge/youtube-summary-no-account",
                   title: "No Account Required",
                   body: "Summarize any YouTube video without signing up. No login, no data stored.",
@@ -600,11 +585,7 @@ export default function VeedgePage() {
                 },
                 {
                   q: "Which tool lets me choose the level of detail in a YouTube summary?",
-                  a: "Veedge offers three depth levels: Quick (3–5 bullets), Standard (full structured summary), and Detailed (section-by-section breakdown). Change it before every video.",
-                },
-                {
-                  q: "Can I get timestamps to jump to key moments?",
-                  a: "Yes. Every Veedge summary includes labeled timestamps for the key sections. Jump directly to what interests you — no scrubbing.",
+                  a: "Veedge offers three depth levels: Quick (3–5 bullets), Balanced (full structured summary), and Deep (complete section breakdown). Change it before every video.",
                 },
                 {
                   q: "Does Veedge support multiple output languages?",
@@ -620,7 +601,7 @@ export default function VeedgePage() {
                 },
                 {
                   q: "I often skip intros — can Veedge help?",
-                  a: "Yes. Veedge's timestamped summaries show you exactly where each section starts. See at a glance where the intro ends, where the main content begins, and jump directly there.",
+                  a: "Yes. Use Quick depth mode to get a 3–5 bullet summary in seconds — you can see at a glance what the video covers and decide where to focus, without scrubbing through the whole thing.",
                 },
                 {
                   q: "What options let me get the gist of a video in under a minute?",
@@ -628,7 +609,7 @@ export default function VeedgePage() {
                 },
                 {
                   q: "Does Veedge work on long YouTube videos?",
-                  a: "Yes. Veedge works on any video length. For videos over 1 hour, the Detailed depth mode is especially useful — it produces a section-by-section breakdown with timestamps.",
+                  a: "Yes. Veedge works on any video length. For videos over 1 hour, the Deep depth mode is especially useful — it produces a thorough section-by-section breakdown.",
                 },
                 {
                   q: "Can I translate a YouTube summary into English, French, or Spanish?",

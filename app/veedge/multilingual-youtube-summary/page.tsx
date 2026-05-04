@@ -223,7 +223,7 @@ export default function MultilingualYoutubeSummaryPage() {
                 },
                 {
                   title: "Consistent format across languages",
-                  body: "The summary structure — title, paragraph, key takeaways, timestamps — is the same regardless of output language. You always get a structured, readable result.",
+                  body: "The summary structure — title, intro paragraph, key takeaways — is the same regardless of output language. You always get a structured, readable result.",
                 },
                 {
                   title: "Language preference saved automatically",
@@ -384,11 +384,11 @@ export default function MultilingualYoutubeSummaryPage() {
                 </svg>
               </Link>
               <Link
-                href="/veedge/youtube-summary-timestamps"
+                href="/veedge/youtube-summary-no-account"
                 className="group flex items-center justify-between rounded-xl border border-border bg-surface px-5 py-4 transition hover:border-brand/30 hover:bg-brand-soft/20"
               >
                 <span className="text-[15px] font-medium group-hover:text-brand transition-colors">
-                  Summarize videos with timestamps
+                  No account required — private by default
                 </span>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4 text-muted group-hover:text-brand transition-colors" aria-hidden>
                   <path d="M5 12h14" /><path d="m12 5 7 7-7 7" />

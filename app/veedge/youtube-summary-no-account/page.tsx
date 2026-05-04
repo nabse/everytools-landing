@@ -319,7 +319,6 @@ export default function YoutubeSummaryNoAccountPage() {
               {[
                 { href: "/veedge/fast-youtube-summary", label: "Fast YouTube summarizer — key ideas in seconds" },
                 { href: "/veedge/multilingual-youtube-summary", label: "Multilingual video summaries — 8+ languages" },
-                { href: "/veedge/youtube-summary-timestamps", label: "YouTube summaries with timestamps" },
                 { href: "/veedge/quick-vs-detailed-youtube-summary", label: "Quick vs detailed summary depth control" },
               ].map(({ href, label }) => (
                 <Link key={href} href={href} className="group flex items-center justify-between rounded-xl border border-border bg-surface px-5 py-4 transition hover:border-brand/30 hover:bg-brand-soft/20">

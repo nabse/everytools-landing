@@ -132,7 +132,7 @@ export default function FastYoutubeSummaryPage() {
                 {
                   step: "03",
                   title: "Read the summary",
-                  body: "You get a structured result with key ideas, takeaways, and timestamps in under 10 seconds.",
+                  body: "You get a structured result with key ideas and takeaways in under 10 seconds.",
                 },
               ].map(({ step, title, body }) => (
                 <div key={step} className="flex flex-col">
@@ -170,11 +170,11 @@ export default function FastYoutubeSummaryPage() {
                 },
                 {
                   title: "Structured output, not a wall of text",
-                  body: "You get a title, a summary paragraph, bullet-point key takeaways, and timestamps — a clean format you can actually use.",
+                  body: "You get a title, a summary paragraph, and bullet-point key takeaways — a clean format you can actually use.",
                 },
                 {
                   title: "Adjustable depth",
-                  body: "Need a 3-bullet skim? Choose Quick. Want every section covered? Choose Detailed. Set the depth before you summarize.",
+                  body: "Need a 3-bullet skim? Choose Quick. Want every section covered? Choose Deep. Set the depth before you summarize.",
                 },
                 {
                   title: "Works on any YouTube video",
@@ -315,11 +315,11 @@ export default function FastYoutubeSummaryPage() {
             </h2>
             <div className="grid gap-4 sm:grid-cols-2">
               <Link
-                href="/veedge/youtube-summary-timestamps"
+                href="/veedge/youtube-summary-no-account"
                 className="group flex items-center justify-between rounded-xl border border-border bg-surface px-5 py-4 transition hover:border-brand/30 hover:bg-brand-soft/20"
               >
                 <span className="text-[15px] font-medium group-hover:text-brand transition-colors">
-                  Summarize videos with timestamps
+                  No account required — private by default
                 </span>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4 text-muted group-hover:text-brand transition-colors" aria-hidden>
                   <path d="M5 12h14" /><path d="m12 5 7 7-7 7" />

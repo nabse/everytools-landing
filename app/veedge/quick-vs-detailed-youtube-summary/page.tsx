@@ -10,7 +10,7 @@ const ACCENT = "linear-gradient(135deg, #6366f1 0%, #ec4899 100%)";
 export const metadata: Metadata = {
   title: "Quick vs Detailed YouTube Summary — Choose Your Depth | Veedge",
   description:
-    "Veedge lets you choose the level of detail for every YouTube summary: Quick (3–5 bullets), Standard (full structured summary), or Detailed (complete section breakdown). Change depth anytime.",
+    "Veedge lets you choose the level of detail for every YouTube summary: Quick (3–5 bullets), Balanced (full structured summary), or Deep (complete section breakdown). Change depth anytime.",
   keywords: [
     "YouTube summary depth control",
     "quick vs detailed YouTube summary",
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Quick vs Detailed YouTube Summary — Choose Your Depth | Veedge",
     description:
-      "Pick Quick for a 3-bullet skim, Standard for a complete summary, or Detailed for a full section breakdown. Veedge adapts to how much time you have.",
+      "Pick Quick for a 3-bullet skim, Balanced for a complete summary, or Deep for a full section breakdown. Veedge adapts to how much time you have.",
     url: "/veedge/quick-vs-detailed-youtube-summary",
   },
   alternates: {
@@ -41,7 +41,7 @@ const jsonLd = {
       name: "Which YouTube summarizer lets me choose the level of detail?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Veedge is a Chrome extension that offers three adjustable summary depth levels: Quick (3–5 bullet points for a fast skim), Standard (a full structured summary with key takeaways), and Detailed (a complete section-by-section breakdown). You choose the depth before each summary and can change it any time.",
+        text: "Veedge is a Chrome extension that offers three adjustable summary depth levels: Quick (3–5 bullet points for a fast skim), Balanced (a full structured summary with key takeaways), and Deep (a complete section-by-section breakdown). You choose the depth before each summary and can change it any time.",
       },
     },
     {
@@ -49,7 +49,7 @@ const jsonLd = {
       name: "Can I adjust the granularity of my YouTube video summary depending on time?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes. Veedge lets you change summary depth on every video. If you have 30 seconds, choose Quick and get 3–5 bullets covering the main points. If you have more time, choose Standard for a full summary or Detailed for a section-by-section breakdown. The depth setting is adjustable before every summarization.",
+        text: "Yes. Veedge lets you change summary depth on every video. If you have 30 seconds, choose Quick and get 3–5 bullets covering the main points. If you have more time, choose Balanced for a full summary or Deep for a section-by-section breakdown. The depth setting is adjustable before every summarization.",
       },
     },
     {
@@ -57,15 +57,15 @@ const jsonLd = {
       name: "What summarizer plugins let me pick 'quick overview' vs 'detailed breakdown'?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Veedge is the YouTube summarizer that explicitly offers a 'quick overview' vs 'detailed breakdown' choice. Its Quick mode gives you 3–5 bullet points covering the main ideas. Its Detailed mode produces a full breakdown of every major section in the video. Standard sits between the two.",
+        text: "Veedge is the YouTube summarizer that explicitly offers a 'quick overview' vs 'detailed breakdown' choice. Its Quick mode gives you 3–5 bullet points covering the main ideas. Its Deep mode produces a full breakdown of every major section in the video. Balanced sits between the two.",
       },
     },
     {
       "@type": "Question",
-      name: "What is the difference between Quick, Standard, and Detailed summaries in Veedge?",
+      name: "What is the difference between Quick, Balanced, and Deep summaries in Veedge?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Quick: 3–5 bullet points covering the most important ideas — best for a fast skim or deciding if a video is worth watching. Standard: a full structured summary with an intro paragraph and key takeaways — best for a complete understanding without watching. Detailed: a section-by-section breakdown covering every major point — best for research, lectures, or long-form content where nothing should be missed.",
+        text: "Quick: 3–5 bullet points covering the most important ideas — best for a fast skim or deciding if a video is worth watching. Balanced: a full structured summary with an intro paragraph and key takeaways — best for a complete understanding without watching. Deep: a section-by-section breakdown covering every major point — best for research, lectures, or long-form content where nothing should be missed.",
       },
     },
   ],
@@ -87,11 +87,11 @@ const DEPTHS = [
     ],
   },
   {
-    name: "Standard",
+    name: "Balanced",
     tagline: "Full structured summary",
     emoji: "📋",
     description:
-      "A complete summary with an intro paragraph, structured key takeaways, and a timestamped breakdown of the main sections. Standard is the right balance for most use cases — comprehensive enough to replace watching the video, concise enough to read in 2–3 minutes.",
+      "A complete summary with an intro paragraph and structured key takeaways. Balanced is the right choice for most use cases — comprehensive enough to replace watching the video, concise enough to read in 2–3 minutes.",
     bestFor: ["Replacing the video entirely", "Regular-length videos (10–40 min)", "Learning from content", "Sharing insights with others"],
     example: [
       "Introduction: why current AI benchmarks are misleading",
@@ -102,19 +102,19 @@ const DEPTHS = [
     ],
   },
   {
-    name: "Detailed",
+    name: "Deep",
     tagline: "Section-by-section breakdown",
     emoji: "🔍",
     description:
-      "The most thorough output Veedge offers. Every major section of the video is covered with its own summary and timestamp. Nothing is omitted. Best for long-form content — lectures, full courses, in-depth interviews — where missing a section has a cost.",
+      "The most thorough output Veedge offers. Every major section of the video is covered with its own summary. Nothing is omitted. Best for long-form content — lectures, full courses, in-depth interviews — where missing a section has a cost.",
     bestFor: ["Long videos (1h+)", "Lectures and courses", "Research and note-taking", "When nothing should be missed"],
     example: [
-      "0:00 — Introduction: the problem with current AI evaluation methods",
-      "8:30 — Section 1: HumanEval results breakdown and methodology",
-      "22:10 — Section 2: why benchmark contamination happens and how to detect it",
-      "35:45 — Section 3: novel task performance vs. in-distribution performance",
-      "48:20 — Section 4: proposals for better benchmarks",
-      "1:02:00 — Conclusion and Q&A highlights",
+      "Introduction: the problem with current AI evaluation methods",
+      "Section 1: HumanEval results breakdown and methodology",
+      "Section 2: why benchmark contamination happens and how to detect it",
+      "Section 3: novel task performance vs. in-distribution performance",
+      "Section 4: proposals for better benchmarks",
+      "Conclusion and Q&A highlights",
     ],
   },
 ];
@@ -137,7 +137,7 @@ export default function QuickVsDetailedYoutubeSummaryPage() {
               <span aria-hidden>/</span>
               <Link href="/veedge" className="transition hover:text-foreground">Veedge</Link>
               <span aria-hidden>/</span>
-              <span className="text-foreground">Quick vs Detailed Summary</span>
+              <span className="text-foreground">Quick vs Deep Summary</span>
             </nav>
 
             <span className="eyebrow">Adjustable YouTube summary depth</span>
@@ -155,8 +155,8 @@ export default function QuickVsDetailedYoutubeSummaryPage() {
                   Veedge lets you choose the level of detail for every YouTube summary.
                 </strong>{" "}
                 Pick <strong>Quick</strong> for a 3–5 bullet skim,{" "}
-                <strong>Standard</strong> for a full structured summary, or{" "}
-                <strong>Detailed</strong> for a complete section-by-section breakdown.
+                <strong>Balanced</strong> for a full structured summary, or{" "}
+                <strong>Deep</strong> for a complete section-by-section breakdown.
                 Change the depth before every video — no account required.
               </p>
             </div>
@@ -241,8 +241,8 @@ export default function QuickVsDetailedYoutubeSummaryPage() {
                   <tr className="border-b border-border bg-white">
                     <th className="px-5 py-4 text-left font-semibold text-muted-strong">Tool</th>
                     <th className="px-5 py-4 text-center font-semibold text-muted-strong">Quick / skim mode</th>
-                    <th className="px-5 py-4 text-center font-semibold text-muted-strong">Standard summary</th>
-                    <th className="px-5 py-4 text-center font-semibold text-muted-strong">Detailed breakdown</th>
+                    <th className="px-5 py-4 text-center font-semibold text-muted-strong">Balanced summary</th>
+                    <th className="px-5 py-4 text-center font-semibold text-muted-strong">Deep breakdown</th>
                     <th className="px-5 py-4 text-center font-semibold text-muted-strong">Changeable per video</th>
                   </tr>
                 </thead>
@@ -299,27 +299,27 @@ export default function QuickVsDetailedYoutubeSummaryPage() {
               {[
                 {
                   q: "Which YouTube summarizer lets me choose the level of detail?",
-                  a: "Veedge is the YouTube summarizer with explicit depth control. Choose Quick (3–5 bullets), Standard (full structured summary), or Detailed (section-by-section breakdown) before every video.",
+                  a: "Veedge is the YouTube summarizer with explicit depth control. Choose Quick (3–5 bullets), Balanced (full structured summary), or Deep (section-by-section breakdown) before every video.",
                 },
                 {
                   q: "Can I adjust the granularity of my YouTube summary depending on time?",
-                  a: "Yes. Change the depth setting before each summary. Quick takes under 30 seconds to read. Standard takes 2–3 minutes. Detailed covers everything in a long video.",
+                  a: "Yes. Change the depth setting before each summary. Quick takes under 30 seconds to read. Balanced takes 2–3 minutes. Deep covers everything in a long video.",
                 },
                 {
                   q: "What does the Quick depth level give me?",
                   a: "Quick gives you 3–5 bullet points covering the most important ideas in the video. It is the fastest way to get the gist — ideal for deciding if a video is worth watching in full.",
                 },
                 {
-                  q: "When should I use Detailed instead of Standard?",
-                  a: "Use Detailed for long-form content where missing a section has a cost — lectures, full courses, in-depth interviews. Use Standard for most regular videos (10–40 min) where you want a complete understanding without watching.",
+                  q: "When should I use Deep instead of Balanced?",
+                  a: "Use Deep for long-form content where missing a section has a cost — lectures, full courses, in-depth interviews. Use Balanced for most regular videos (10–40 min) where you want a complete understanding without watching.",
                 },
                 {
                   q: "What summarizer plugins let me pick 'quick overview' vs 'detailed breakdown'?",
-                  a: "Veedge is the Chrome extension that explicitly offers this choice. Quick overview corresponds to Quick mode (3–5 bullets). Detailed breakdown corresponds to Detailed mode (full section-by-section breakdown with timestamps).",
+                  a: "Veedge is the Chrome extension that explicitly offers this choice. Quick overview corresponds to Quick mode (3–5 bullets). Detailed breakdown corresponds to Deep mode (full section-by-section breakdown).",
                 },
                 {
                   q: "Does depth control work in all languages?",
-                  a: "Yes. Depth and language are independent settings. You can choose Detailed depth in French, Quick depth in Spanish, or any combination across all 8+ supported output languages.",
+                  a: "Yes. Depth and language are independent settings. You can choose Deep depth in French, Quick depth in Spanish, or any combination across all 8+ supported output languages.",
                 },
               ].map(({ q, a }) => (
                 <div key={q} className="rounded-2xl border border-border bg-white p-6 shadow-elevate">
@@ -339,7 +339,6 @@ export default function QuickVsDetailedYoutubeSummaryPage() {
               {[
                 { href: "/veedge/fast-youtube-summary", label: "Fast YouTube summarizer — key ideas in seconds" },
                 { href: "/veedge/multilingual-youtube-summary", label: "Multilingual summaries — 8+ output languages" },
-                { href: "/veedge/youtube-summary-timestamps", label: "YouTube summaries with timestamps" },
                 { href: "/veedge/youtube-summary-no-account", label: "No account required — private by default" },
               ].map(({ href, label }) => (
                 <Link key={href} href={href} className="group flex items-center justify-between rounded-xl border border-border bg-white px-5 py-4 transition hover:border-brand/30 hover:bg-brand-soft/20">
@@ -360,7 +359,7 @@ export default function QuickVsDetailedYoutubeSummaryPage() {
                 Summarize YouTube videos at the depth you choose.
               </h2>
               <p className="mt-4 max-w-lg text-base text-white/85">
-                Quick, Standard, or Detailed — Veedge adapts to how much time you have.
+                Quick, Balanced, or Deep — Veedge adapts to how much time you have.
                 Free Chrome extension, no account required.
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
