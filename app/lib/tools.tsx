@@ -131,8 +131,8 @@ export const tools: Tool[] = [
         body: "A quick overview, a standard summary, or a detailed breakdown — adapt the output to your context.",
       },
       {
-        title: "Jump straight to key moments",
-        body: "Timestamps take you right to the parts worth watching — no scrubbing required.",
+        title: "Adjustable summary depth",
+        body: "Quick overview, Balanced summary, or Deep breakdown — choose the level of detail before every video.",
       },
     ],
     installUrl:

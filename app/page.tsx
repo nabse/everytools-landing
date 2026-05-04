@@ -357,33 +357,36 @@ export default function Home() {
                     <div className="mb-4 flex items-center justify-between border-b border-border/60 pb-4">
                       <div className="flex items-center gap-2">
                         <span
-                          className="flex h-6 w-6 items-center justify-center rounded-md text-[10px] font-bold text-white"
+                          className="flex h-6 w-6 items-center justify-center rounded-full text-[10px] font-bold text-white"
                           style={{ background: "linear-gradient(135deg, #6366f1 0%, #ec4899 100%)" }}
                           aria-hidden
                         >V</span>
                         <span className="text-[13px] font-semibold">Veedge · Summary</span>
                       </div>
-                      <span className="rounded-full border border-border bg-surface px-2 py-0.5 text-[10px] font-medium text-muted-strong">Example</span>
+                      <div className="flex items-center gap-1.5">
+                        <span className="rounded-full border border-border bg-surface px-2 py-0.5 text-[10px] font-medium text-muted-strong">Quick · EN</span>
+                        <span className="rounded-full border border-border bg-surface px-2 py-0.5 text-[10px] font-medium text-muted-strong">Example</span>
+                      </div>
                     </div>
-                    <p className="text-[14px] font-semibold leading-snug">The Psychology of Habit Formation</p>
-                    <p className="mt-3 text-[13.5px] leading-[1.7] text-muted">
-                      Habits are built through a cue–routine–reward loop. Identity-based
-                      habits are more durable than outcome-based ones — focus on who you
-                      want to become, not what you want to achieve.
+                    <p className="text-[11px] text-muted">youtube.com · 14 min</p>
+                    <p className="mt-1 text-[14px] font-semibold leading-snug">The Psychology of Habit Formation</p>
+                    <p className="mt-2 text-[13.5px] leading-[1.7] text-muted">
+                      Habits form through a cue–routine–reward loop. Identity-based habits
+                      outlast outcome-based ones — become the person, not just the goal.
                     </p>
-                    <div className="mt-4 space-y-1.5">
+                    <ul className="mt-4 space-y-2">
                       {[
-                        { t: "0:00", l: "Introduction — the habit loop" },
-                        { t: "2:14", l: "Cue, routine, reward explained" },
-                        { t: "6:30", l: "Identity vs. outcome-based habits" },
-                        { t: "11:05", l: "Environmental design tips" },
-                      ].map(({ t, l }) => (
-                        <div key={t} className="flex items-baseline gap-2.5 text-[12.5px]">
-                          <span className="shrink-0 font-mono font-semibold text-[#6366f1]">{t}</span>
-                          <span className="text-muted">{l}</span>
-                        </div>
+                        "The habit loop: cue, routine, reward — and how to hack it",
+                        "Identity-based habits outlast goal-based ones",
+                        "Environmental design beats willpower every time",
+                        "Start smaller than you think you need to",
+                      ].map((point) => (
+                        <li key={point} className="flex items-start gap-2 text-[12.5px]">
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round" className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[#6366f1]" aria-hidden><path d="M20 6 9 17l-5-5" /></svg>
+                          <span className="text-muted">{point}</span>
+                        </li>
                       ))}
-                    </div>
+                    </ul>
                   </div>
                 </div>
               </div>
@@ -487,6 +490,179 @@ export default function Home() {
                 </div>
               </div>
 
+            </div>
+          </div>
+        </section>
+
+        {/* ================== INSTANTREP SPOTLIGHT ================== */}
+        <section className="bg-white border-y border-border/60">
+          <div className="mx-auto w-full max-w-6xl px-5 py-20 sm:px-8 sm:py-24">
+            <div className="grid gap-10 lg:grid-cols-12 lg:gap-16 items-center">
+              {/* Text */}
+              <div className="lg:col-span-6">
+                <span className="eyebrow">Featured extension</span>
+                <h2 className="mt-5 text-[28px] font-semibold leading-[1.1] sm:text-[36px]">
+                  InstantRep —{" "}
+                  <span className="text-gradient">AI Email Reply Assistant</span>
+                </h2>
+                <p className="mt-5 text-[16px] leading-[1.75] text-muted">
+                  Open InstantRep on any email and get a natural, ready-to-send reply in
+                  seconds — in the tone that fits the conversation, in your language.
+                </p>
+                <ul className="mt-7 space-y-3">
+                  {[
+                    { href: "/instantrep/professional-email-reply-generator", label: "Tone selection", sub: "Professional, friendly, direct, or casual — match the moment" },
+                    { href: "/instantrep/multilingual-email-reply", label: "Multilingual replies", sub: "Reply in any language, whatever the email was written in" },
+                    { href: "/instantrep/ai-email-reply-no-account", label: "No account required", sub: "Install and reply — no signup, no data stored" },
+                  ].map(({ href, label, sub }) => (
+                    <li key={href}>
+                      <Link href={href} className="group flex items-start gap-3 rounded-xl border border-border bg-surface px-4 py-3.5 transition hover:border-brand/30 hover:bg-brand-soft/20">
+                        <span className="mt-[3px] flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-cta-gradient text-white">
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={3} strokeLinecap="round" strokeLinejoin="round" className="h-2.5 w-2.5" aria-hidden><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg>
+                        </span>
+                        <span>
+                          <span className="block text-[14.5px] font-semibold text-foreground group-hover:text-brand transition-colors">{label}</span>
+                          <span className="block text-[13px] text-muted mt-0.5">{sub}</span>
+                        </span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+                <div className="mt-7">
+                  <Link href="/instantrep" className="btn-primary focus-ring inline-flex">
+                    Explore InstantRep
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4" aria-hidden><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg>
+                  </Link>
+                </div>
+              </div>
+
+              {/* Preview card */}
+              <div className="lg:col-span-6">
+                <div className="relative">
+                  <div aria-hidden className="pointer-events-none absolute -inset-8 opacity-[0.14] blur-3xl" style={{ background: "linear-gradient(135deg, #60a5fa 0%, #2563eb 100%)" }} />
+                  <div className="relative rounded-[20px] border border-border-strong/70 bg-white p-6 shadow-pop">
+                    <div className="mb-4 flex items-center justify-between border-b border-border/60 pb-4">
+                      <div className="flex items-center gap-2">
+                        <span className="flex h-6 w-6 items-center justify-center rounded-full text-white" style={{ background: "linear-gradient(135deg, #60a5fa 0%, #2563eb 100%)" }} aria-hidden>
+                          <svg viewBox="0 0 24 24" fill="currentColor" className="h-3.5 w-3.5" aria-hidden><path d="M13 2 4 14h7l-1 8 10-12h-7z" /></svg>
+                        </span>
+                        <span className="text-[13px] font-semibold">InstantRep · Reply</span>
+                      </div>
+                      <span className="rounded-full border border-border bg-surface px-2 py-0.5 text-[10px] font-medium text-muted-strong">Example</span>
+                    </div>
+                    {/* Email context */}
+                    <div className="mb-3 rounded-lg border border-border bg-surface px-3 py-2.5">
+                      <p className="text-[10px] font-semibold uppercase tracking-[0.08em] text-muted-strong">Replying to</p>
+                      <p className="mt-0.5 text-[12.5px] font-semibold text-foreground">Re: Q3 Budget Review</p>
+                      <p className="text-[11px] text-muted">sarah@company.com · 2h ago</p>
+                      <p className="mt-1.5 text-[11.5px] italic text-muted/80">"Can you confirm the figures before our 3pm call?"</p>
+                    </div>
+                    {/* Tone selector */}
+                    <div className="mb-3 flex flex-wrap items-center gap-1.5">
+                      <span className="text-[10px] font-medium text-muted-strong">Tone:</span>
+                      {["Professional", "Friendly", "Direct", "Casual"].map((tone, i) => (
+                        <span
+                          key={tone}
+                          className={i === 0 ? "rounded-full px-2.5 py-1 text-[10.5px] font-bold text-white" : "rounded-full border border-border bg-surface px-2.5 py-1 text-[10.5px] font-medium text-muted"}
+                          style={i === 0 ? { background: "linear-gradient(135deg, #60a5fa 0%, #2563eb 100%)" } : {}}
+                        >{tone}</span>
+                      ))}
+                    </div>
+                    {/* Reply output */}
+                    <div className="rounded-lg border border-blue-100 bg-blue-50/60 px-3 py-3">
+                      <p className="mb-1.5 text-[10px] font-semibold uppercase tracking-[0.08em] text-blue-700">Generated reply</p>
+                      <p className="text-[12.5px] leading-[1.65] text-foreground/85">Hi Sarah, confirmed — I'll send the updated Q3 figures by 2:30 pm. See you at 3.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ================== EXPLAINIT SPOTLIGHT ================== */}
+        <section className="bg-surface border-y border-border/60">
+          <div className="mx-auto w-full max-w-6xl px-5 py-20 sm:px-8 sm:py-24">
+            <div className="grid gap-10 lg:grid-cols-12 lg:gap-16 items-center">
+              {/* Preview card */}
+              <div className="lg:col-span-5 order-2 lg:order-1">
+                <div className="relative">
+                  <div aria-hidden className="pointer-events-none absolute -inset-6 opacity-[0.12] blur-3xl" style={{ background: "linear-gradient(135deg, #c084fc 0%, #9333ea 100%)" }} />
+                  <div className="relative rounded-[20px] border border-border-strong/70 bg-white p-6 shadow-pop">
+                    <div className="mb-4 flex items-center justify-between border-b border-border/60 pb-4">
+                      <div className="flex items-center gap-2">
+                        <span className="flex h-6 w-6 items-center justify-center rounded-full text-white" style={{ background: "linear-gradient(135deg, #c084fc 0%, #9333ea 100%)" }} aria-hidden>
+                          <svg viewBox="0 0 24 24" fill="currentColor" className="h-3.5 w-3.5" aria-hidden>
+                            <rect x="3" y="5" width="18" height="2.4" rx="1.2" />
+                            <rect x="3" y="10.8" width="18" height="2.4" rx="1.2" />
+                            <rect x="3" y="16.6" width="12" height="2.4" rx="1.2" />
+                          </svg>
+                        </span>
+                        <span className="text-[13px] font-semibold">ExplainIt · Explanation</span>
+                      </div>
+                      <span className="rounded-full border border-border bg-surface px-2 py-0.5 text-[10px] font-medium text-muted-strong">Example</span>
+                    </div>
+                    {/* Page detected */}
+                    <div className="mb-3 rounded-lg border border-border bg-surface px-3 py-2.5">
+                      <p className="text-[10px] font-semibold uppercase tracking-[0.08em] text-muted-strong">Page detected</p>
+                      <p className="mt-0.5 text-[12.5px] font-semibold text-foreground">What Is Quantum Entanglement?</p>
+                      <p className="text-[11px] text-muted">scientificamerican.com · 12 min read</p>
+                    </div>
+                    {/* Depth selector */}
+                    <div className="mb-3 flex items-center gap-1.5">
+                      <span className="text-[10px] font-medium text-muted-strong">Depth:</span>
+                      {["Simple", "Clear", "Expert"].map((d, i) => (
+                        <span
+                          key={d}
+                          className={i === 0 ? "rounded-full px-2.5 py-1 text-[10.5px] font-bold text-white" : "rounded-full border border-border bg-surface px-2.5 py-1 text-[10.5px] font-medium text-muted"}
+                          style={i === 0 ? { background: "linear-gradient(135deg, #c084fc 0%, #9333ea 100%)" } : {}}
+                        >{d}</span>
+                      ))}
+                    </div>
+                    {/* Explanation output */}
+                    <div className="rounded-lg border border-purple-100 bg-purple-50/50 px-3 py-3">
+                      <p className="mb-1.5 text-[10px] font-semibold uppercase tracking-[0.08em] text-purple-700">Explanation · Simple</p>
+                      <p className="text-[12.5px] leading-[1.65] text-foreground/85">Two particles can be "linked" so that measuring one instantly tells you about the other — no matter how far apart they are. Einstein called it "spooky action at a distance."</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Text */}
+              <div className="lg:col-span-7 order-1 lg:order-2">
+                <span className="eyebrow">Featured extension</span>
+                <h2 className="mt-5 text-[28px] font-semibold leading-[1.1] sm:text-[36px]">
+                  ExplainIt —{" "}
+                  <span className="text-gradient">AI Webpage Explainer</span>
+                </h2>
+                <p className="mt-5 text-[16px] leading-[1.75] text-muted">
+                  Open ExplainIt on any article, research paper, or complex page and get a
+                  clear, readable explanation — in your language, at the depth you choose.
+                </p>
+                <ul className="mt-7 space-y-3">
+                  {[
+                    { label: "Explains any page", sub: "Articles, docs, research papers, product pages — all supported" },
+                    { label: "Adjustable explanation depth", sub: "Simple overview or expert-level breakdown — your choice" },
+                    { label: "Multilingual by default", sub: "Explanations in your language, regardless of what the page was written in" },
+                  ].map(({ label, sub }) => (
+                    <li key={label} className="flex items-start gap-3 rounded-xl border border-border bg-white px-4 py-3.5">
+                      <span className="mt-[3px] flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-cta-gradient text-white">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={3} strokeLinecap="round" strokeLinejoin="round" className="h-2.5 w-2.5" aria-hidden><path d="M20 6 9 17l-5-5" /></svg>
+                      </span>
+                      <span>
+                        <span className="block text-[14.5px] font-semibold text-foreground">{label}</span>
+                        <span className="block text-[13px] text-muted mt-0.5">{sub}</span>
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+                <div className="mt-7">
+                  <Link href="/explainit" className="btn-primary focus-ring inline-flex">
+                    Explore ExplainIt
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4" aria-hidden><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg>
+                  </Link>
+                </div>
+              </div>
             </div>
           </div>
         </section>
