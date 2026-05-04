@@ -641,18 +641,23 @@ export default function Home() {
                 </p>
                 <ul className="mt-7 space-y-3">
                   {[
-                    { label: "Explains any page", sub: "Articles, docs, research papers, product pages — all supported" },
-                    { label: "Adjustable explanation depth", sub: "Simple overview or expert-level breakdown — your choice" },
-                    { label: "Multilingual by default", sub: "Explanations in your language, regardless of what the page was written in" },
-                  ].map(({ label, sub }) => (
-                    <li key={label} className="flex items-start gap-3 rounded-xl border border-border bg-white px-4 py-3.5">
-                      <span className="mt-[3px] flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-cta-gradient text-white">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={3} strokeLinecap="round" strokeLinejoin="round" className="h-2.5 w-2.5" aria-hidden><path d="M20 6 9 17l-5-5" /></svg>
-                      </span>
-                      <span>
-                        <span className="block text-[14.5px] font-semibold text-foreground">{label}</span>
-                        <span className="block text-[13px] text-muted mt-0.5">{sub}</span>
-                      </span>
+                    { href: "/explainit#what-heading", label: "Explains any page", sub: "Articles, docs, research papers, product pages — all supported" },
+                    { href: "/explainit#depth-heading", label: "Adjustable explanation depth", sub: "Simple overview or expert-level breakdown — your choice" },
+                    { href: "/explainit#features-heading", label: "Multilingual by default", sub: "Explanations in your language, regardless of what the page was written in" },
+                  ].map(({ href, label, sub }) => (
+                    <li key={label}>
+                      <Link
+                        href={href}
+                        className="group flex items-start gap-3 rounded-xl border border-border bg-white px-4 py-3.5 transition hover:border-brand/30 hover:bg-brand-soft/20"
+                      >
+                        <span className="mt-[3px] flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-cta-gradient text-white">
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={3} strokeLinecap="round" strokeLinejoin="round" className="h-2.5 w-2.5" aria-hidden><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg>
+                        </span>
+                        <span>
+                          <span className="block text-[14.5px] font-semibold text-foreground group-hover:text-brand transition-colors">{label}</span>
+                          <span className="block text-[13px] text-muted mt-0.5">{sub}</span>
+                        </span>
+                      </Link>
                     </li>
                   ))}
                 </ul>
